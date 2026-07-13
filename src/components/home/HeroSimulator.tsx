@@ -44,12 +44,12 @@ export default function HeroSimulator() {
       {/* Fond décoratif */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-[0.06] blur-3xl"
-          style={{ background: "radial-gradient(circle, #16a34a 0%, transparent 70%)" }} />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full opacity-[0.05] blur-3xl"
-          style={{ background: "radial-gradient(circle, #16a34a 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full opacity-[0.06] blur-3xl"
+          style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }} />
         <div className="absolute inset-0 opacity-[0.025]"
           style={{
-            backgroundImage: "linear-gradient(#16a34a 1px, transparent 1px), linear-gradient(90deg, #16a34a 1px, transparent 1px)",
+            backgroundImage: "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
             backgroundSize: "48px 48px",
           }} />
       </div>
@@ -61,17 +61,17 @@ export default function HeroSimulator() {
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
 
-            <span className="inline-flex items-center gap-2 text-green-600 text-sm font-bold uppercase tracking-widest mb-5">
-              <span className="w-6 h-0.5 bg-green-500 rounded-full" />
+            <span className="inline-flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-5">
+              <span className="w-6 h-0.5 bg-accent rounded-full" />
               {s.badge}
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-5">
               {s.titleBefore}{" "}
               <span className="relative whitespace-nowrap">
-                <span className="relative z-10 text-green-600">{s.titleHighlight}</span>
+                <span className="relative z-10 text-primary">{s.titleHighlight}</span>
                 <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 300 10" fill="none" preserveAspectRatio="none">
-                  <path d="M0 8 Q150 0 300 8" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.4"/>
+                  <path d="M0 8 Q150 0 300 8" stroke="hsl(var(--accent))" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.6"/>
                 </svg>
               </span>
               <br />{s.titleAfter}
@@ -83,7 +83,7 @@ export default function HeroSimulator() {
             <div className="flex flex-wrap gap-2.5 mb-10">
               {PROJECTS.map(p => (
                 <span key={p.label}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-green-50 hover:text-green-700 cursor-default transition-colors">
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-sm font-medium bg-secondary text-secondary-foreground hover:bg-accent/15 hover:text-primary cursor-default transition-colors">
                   <span>{p.emoji}</span>{p.label}
                 </span>
               ))}
@@ -92,9 +92,9 @@ export default function HeroSimulator() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4">
               {STATS.map(({ value, label, icon: Icon }) => (
-                <div key={label} className="text-center p-4 rounded-2xl bg-gray-50 border border-gray-100">
-                  <Icon className="w-4 h-4 text-green-500 mx-auto mb-2" />
-                  <div className="text-2xl font-extrabold text-gray-900">{value}</div>
+                <div key={label} className="text-center p-4 rounded-2xl bg-muted border border-border">
+                  <Icon className="w-4 h-4 text-accent mx-auto mb-2" />
+                  <div className="text-2xl font-extrabold text-foreground font-ledger">{value}</div>
                   <div className="text-xs text-gray-500 mt-0.5">{label}</div>
                 </div>
               ))}
@@ -104,13 +104,13 @@ export default function HeroSimulator() {
           {/* ── Carte simulateur ── */}
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-white rounded-3xl border border-gray-200 shadow-2xl overflow-hidden"
+            className="bg-card rounded-3xl border border-border shadow-2xl overflow-hidden"
             style={{ boxShadow: "0 24px 80px rgba(0,0,0,0.10)" }}>
 
             {/* Header */}
-            <div className="px-8 py-5 border-b border-gray-100 flex items-center justify-between">
-              <h3 className="font-bold text-gray-900 text-lg">{s.card.title}</h3>
-              <span className="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">
+            <div className="px-8 py-5 border-b border-border flex items-center justify-between">
+              <h3 className="font-bold text-foreground text-lg">{s.card.title}</h3>
+              <span className="text-xs font-semibold text-primary bg-accent/15 px-3 py-1 rounded-full">
                 {s.card.badge}
               </span>
             </div>
@@ -121,17 +121,17 @@ export default function HeroSimulator() {
               <div className="mb-8">
                 <div className="flex justify-between items-baseline mb-3">
                   <span className="text-sm font-semibold text-gray-500">{s.card.amountLabel}</span>
-                  <span className="text-2xl font-extrabold text-gray-900">
-                    {amount.toLocaleString("fr-FR")}<span className="text-green-600"> €</span>
+                  <span className="text-2xl font-extrabold text-foreground font-ledger">
+                    {amount.toLocaleString("fr-FR")}<span className="text-accent"> €</span>
                   </span>
                 </div>
-                <div className="relative h-2 rounded-full bg-gray-100">
+                <div className="relative h-2 rounded-full bg-muted">
                   <div className="absolute left-0 top-0 h-full rounded-full transition-all duration-150"
-                    style={{ width: `${amountPct}%`, background: "linear-gradient(90deg, #16a34a, #22c55e)" }} />
+                    style={{ width: `${amountPct}%`, background: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))" }} />
                   <input type="range" min="500" max="50000" step="500" value={amount}
                     onChange={e => setAmount(parseInt(e.target.value))}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
-                  <div className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white border-2 border-green-500 shadow-md pointer-events-none transition-all duration-150"
+                  <div className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white border-2 border-accent shadow-md pointer-events-none transition-all duration-150"
                     style={{ left: `calc(${amountPct}% - 10px)` }} />
                 </div>
                 <div className="flex justify-between mt-2 text-xs text-gray-400">
@@ -143,17 +143,17 @@ export default function HeroSimulator() {
               <div className="mb-8">
                 <div className="flex justify-between items-baseline mb-3">
                   <span className="text-sm font-semibold text-gray-500">{s.card.durationLabel}</span>
-                  <span className="text-2xl font-extrabold text-gray-900">
-                    {duration}<span className="text-green-600"> {t.common.monthly}</span>
+                  <span className="text-2xl font-extrabold text-foreground font-ledger">
+                    {duration}<span className="text-accent"> {t.common.monthly}</span>
                   </span>
                 </div>
-                <div className="relative h-2 rounded-full bg-gray-100">
+                <div className="relative h-2 rounded-full bg-muted">
                   <div className="absolute left-0 top-0 h-full rounded-full transition-all duration-150"
-                    style={{ width: `${durationPct}%`, background: "linear-gradient(90deg, #16a34a, #22c55e)" }} />
+                    style={{ width: `${durationPct}%`, background: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))" }} />
                   <input type="range" min="6" max="84" step="6" value={duration}
                     onChange={e => setDuration(parseInt(e.target.value))}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
-                  <div className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white border-2 border-green-500 shadow-md pointer-events-none transition-all duration-150"
+                  <div className="absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white border-2 border-accent shadow-md pointer-events-none transition-all duration-150"
                     style={{ left: `calc(${durationPct}% - 10px)` }} />
                 </div>
                 <div className="flex justify-between mt-2 text-xs text-gray-400">
@@ -163,23 +163,23 @@ export default function HeroSimulator() {
 
               {/* Résultat */}
               <div className="rounded-2xl p-6 mb-6"
-                style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)" }}>
+                style={{ background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(221 46% 14%) 100%)" }}>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <div className="text-gray-400 text-xs mb-1">{s.card.monthlyLabel}</div>
-                    <div className="text-3xl font-extrabold text-white">
-                      {monthlyPayment.toFixed(2)}<span className="text-green-400 text-xl"> €</span>
+                    <div className="text-3xl font-extrabold text-primary-foreground font-ledger">
+                      {monthlyPayment.toFixed(2)}<span className="text-accent text-xl"> €</span>
                     </div>
                   </div>
                   <div>
                     <div className="text-gray-400 text-xs mb-1">{s.card.interestLabel}</div>
-                    <div className="text-2xl font-bold text-gray-200">
+                    <div className="text-2xl font-bold text-gray-200 font-ledger">
                       {totalCost.toFixed(0)}<span className="text-gray-400 text-base"> €</span>
                     </div>
                   </div>
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-gray-400">
-                  <Percent className="w-3 h-3 text-green-400 flex-shrink-0" />
+                  <Percent className="w-3 h-3 text-accent flex-shrink-0" />
                   {s.card.rateNote}
                 </div>
               </div>
@@ -188,7 +188,7 @@ export default function HeroSimulator() {
               <div className="flex gap-4 mb-6">
                 {[s.card.nofees, s.card.instant].map(item => (
                   <div key={item} className="flex items-center gap-1.5 text-xs text-gray-500">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0" />
                     {item}
                   </div>
                 ))}
@@ -196,8 +196,8 @@ export default function HeroSimulator() {
 
               {/* CTA */}
               <Link href={routes.simulator}
-                className="group flex items-center justify-center gap-2 w-full py-4 rounded-xl font-bold text-white text-base transition-all duration-200 hover:-translate-y-0.5"
-                style={{ background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)", boxShadow: "0 8px 24px rgba(22,163,74,0.40)" }}>
+                className="group flex items-center justify-center gap-2 w-full py-4 rounded-xl font-bold text-accent-foreground text-base transition-all duration-200 hover:-translate-y-0.5"
+                style={{ background: "linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(38 68% 46%) 100%)", boxShadow: "0 8px 24px hsl(38 68% 54% / 0.40)" }}>
                 {s.card.cta}
                 <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Link>

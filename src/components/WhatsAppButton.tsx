@@ -5,10 +5,10 @@ import { X, MessageCircle, Phone, Mail, ChevronRight } from "lucide-react"
 const WHATSAPP_NUMBER = "33605662921" // ← remplace par ton numéro sans le +
 
 const QUICK_MESSAGES = [
-  { label: "Demander un prêt personnel",    msg: "Bonjour FabFinance 👋 Je souhaite obtenir un prêt personnel. Pouvez-vous m'aider ?"       },
-  { label: "Simuler un prêt auto",          msg: "Bonjour FabFinance 👋 Je souhaite simuler un prêt auto. Pouvez-vous m'accompagner ?"       },
-  { label: "Connaître mes mensualités",     msg: "Bonjour FabFinance 👋 J'aimerais connaître mes mensualités pour un projet de financement." },
-  { label: "Suivre mon dossier",            msg: "Bonjour FabFinance 👋 Je souhaite avoir des nouvelles de mon dossier de prêt."              },
+  { label: "Demander un prêt personnel",    msg: "Bonjour ISEUT Finance 👋 Je souhaite obtenir un prêt personnel. Pouvez-vous m'aider ?"       },
+  { label: "Simuler un prêt auto",          msg: "Bonjour ISEUT Finance 👋 Je souhaite simuler un prêt auto. Pouvez-vous m'accompagner ?"       },
+  { label: "Connaître mes mensualités",     msg: "Bonjour ISEUT Finance 👋 J'aimerais connaître mes mensualités pour un projet de financement." },
+  { label: "Suivre mon dossier",            msg: "Bonjour ISEUT Finance 👋 Je souhaite avoir des nouvelles de mon dossier de prêt."              },
 ]
 
 function buildWhatsAppUrl(msg: string) {
@@ -59,7 +59,7 @@ export default function WhatsAppButton() {
                       <MessageCircle className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm">FabFinance</p>
+                      <p className="text-white font-bold text-sm">ISEUT Finance</p>
                       <div className="flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                         <span className="text-green-300 text-xs">En ligne · répond en 2h</span>
@@ -117,7 +117,7 @@ export default function WhatsAppButton() {
                     Appeler
                   </a>
                   <a
-                    href="mailto:contact@fabfinance.fr"
+                    href="mailto:contact@ISEUT Finance.fr"
                     className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold text-white transition-all hover:-translate-y-0.5"
                     style={{ background: "linear-gradient(135deg, #8b5cf6, #7c3aed)" }}
                   >

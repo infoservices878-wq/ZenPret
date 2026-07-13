@@ -15,11 +15,11 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gray-950/70" />
         <div className="absolute inset-0 bg-gradient-to-r from-gray-950 via-gray-950/85 to-transparent" />
         <div className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full opacity-20 blur-3xl"
-          style={{ background: "radial-gradient(circle, #16a34a 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full opacity-10 blur-3xl"
-          style={{ background: "radial-gradient(circle, #22c55e 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%)" }} />
       </div>
-      <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-transparent via-green-500/60 to-transparent hidden lg:block" />
+      <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-transparent via-accent/60 to-transparent hidden lg:block" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-24 lg:py-0">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -28,14 +28,14 @@ export default function HeroSection() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}>
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }} className="inline-flex items-center gap-2 mb-7">
-              <span className="flex h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-              <span className="text-green-400 text-sm font-semibold tracking-widest uppercase">{h.badge}</span>
+              <span className="flex h-2 w-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-accent text-sm font-semibold tracking-widest uppercase">{h.badge}</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-6xl xl:text-7xl font-extrabold text-white leading-[1.05] mb-6 tracking-tight">
               {h.titleLine1}{" "}
               <span className="relative inline-block" style={{
-                background: "linear-gradient(135deg, #4ade80 0%, #16a34a 100%)",
+                background: "linear-gradient(135deg, hsl(38 72% 68%) 0%, hsl(var(--accent)) 100%)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>{h.titleHighlight}</span>
               <br />{h.titleLine2}
@@ -47,8 +47,8 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Link href={routes.simulator}
-                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-base overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-2xl"
-                style={{ background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)", boxShadow: "0 8px 32px rgba(22,163,74,0.45)" }}>
+                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-accent-foreground text-base overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-2xl"
+                style={{ background: "linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(38 68% 46%) 100%)", boxShadow: "0 8px 32px hsl(38 68% 54% / 0.45)" }}>
                 <span className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
                 {h.cta1}
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -66,7 +66,7 @@ export default function HeroSection() {
                 { icon: Users,       label: h.trustBadges.clients },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2 text-sm text-gray-400">
-                  <Icon className="w-4 h-4 text-green-400 flex-shrink-0" /><span>{label}</span>
+                  <Icon className="w-4 h-4 text-accent flex-shrink-0" /><span>{label}</span>
                 </div>
               ))}
             </div>
@@ -79,26 +79,26 @@ export default function HeroSection() {
               style={{ background: "rgba(255,255,255,0.05)" }}>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-gray-400 text-sm">{h.statsCard.rateLabel}</span>
-                <span className="flex items-center gap-1 text-green-400 text-xs font-semibold bg-green-400/10 px-2 py-1 rounded-full">
+                <span className="flex items-center gap-1 text-accent text-xs font-semibold bg-accent/10 px-2 py-1 rounded-full">
                   <TrendingUp className="w-3 h-3" /> {h.statsCard.rateCompete}
                 </span>
               </div>
-              <div className="text-4xl font-extrabold text-white mb-1">3<span className="text-2xl text-green-400">%</span></div>
+              <div className="text-4xl font-extrabold text-white mb-1 font-ledger">3<span className="text-2xl text-accent">%</span></div>
               <div className="text-gray-500 text-xs">{h.statsCard.rateSub}</div>
               <div className="mt-5 pt-5 border-t border-white/10 grid grid-cols-2 gap-4">
-                <div><div className="text-xl font-bold text-white">500€</div><div className="text-gray-500 text-xs mt-0.5">{h.statsCard.minLabel}</div></div>
-                <div><div className="text-xl font-bold text-white">75 000€</div><div className="text-gray-500 text-xs mt-0.5">{h.statsCard.maxLabel}</div></div>
+                <div><div className="text-xl font-bold text-white font-ledger">500€</div><div className="text-gray-500 text-xs mt-0.5">{h.statsCard.minLabel}</div></div>
+                <div><div className="text-xl font-bold text-white font-ledger">75 000€</div><div className="text-gray-500 text-xs mt-0.5">{h.statsCard.maxLabel}</div></div>
               </div>
             </div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.7 }}
-              className="w-64 p-5 rounded-2xl border border-green-500/20 backdrop-blur-xl"
-              style={{ background: "rgba(22,163,74,0.08)", boxShadow: "0 4px 24px rgba(22,163,74,0.12)" }}>
+              className="w-64 p-5 rounded-2xl border border-accent/20 backdrop-blur-xl"
+              style={{ background: "hsl(var(--accent) / 0.08)", boxShadow: "0 4px 24px hsl(var(--accent) / 0.12)" }}>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(22,163,74,0.2)" }}>
-                  <ShieldCheck className="w-5 h-5 text-green-400" />
+                  style={{ background: "hsl(var(--accent) / 0.2)" }}>
+                  <ShieldCheck className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <div className="text-white font-semibold text-sm">{h.statsCard.secureTitle}</div>
@@ -118,7 +118,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <div>
-                <div className="text-white text-sm font-semibold">{h.statsCard.clientsCount}</div>
+                <div className="text-white text-sm font-semibold font-ledger">{h.statsCard.clientsCount}</div>
                 <div className="text-gray-400 text-xs">{h.statsCard.clientsSub}</div>
               </div>
             </motion.div>
@@ -128,7 +128,7 @@ export default function HeroSection() {
 
       <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none">
         <svg viewBox="0 0 1440 64" fill="none" className="w-full h-full" preserveAspectRatio="none">
-          <path d="M0 64L480 20L960 48L1440 0V64H0Z" style={{ fill: "#f9fafb" }} />
+          <path d="M0 64L480 20L960 48L1440 0V64H0Z" style={{ fill: "hsl(var(--background))" }} />
         </svg>
       </div>
     </section>

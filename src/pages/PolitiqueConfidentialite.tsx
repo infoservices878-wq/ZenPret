@@ -15,8 +15,8 @@ const SECTIONS = [
       {
         type: "paragraphs",
         items: [
-          "FabFinance SAS, immatriculée au RCS de Paris sous le numéro 524 581 873, dont le siège social est situé 52 RUE DU DOCTEUR SULTZER 67140 BARR, est responsable du traitement de vos données personnelles collectées via ce site.",
-          "Notre Délégué à la Protection des Données (DPO) est joignable à l'adresse : dpo@fab-financeaide.com",
+          "ISEUT Finance SAS, immatriculée au RCS de Paris sous le numéro 824922561, dont le siège social est situé 52 RUE DU DOCTEUR SULTZER 67140 BARR, est responsable du traitement de vos données personnelles collectées via ce site.",
+          "Notre Délégué à la Protection des Données (DPO) est joignable à l'adresse : dpo@iseutfinance.com",
         ],
       },
     ],
@@ -83,7 +83,7 @@ const SECTIONS = [
       {
         type: "paragraphs",
         items: [
-          "Vos données sont traitées exclusivement par FabFinance SAS et ses sous-traitants techniques, dans le strict cadre de l'exécution du service. Elles ne sont jamais vendues à des tiers.",
+          "Vos données sont traitées exclusivement par ISEUT Finance SAS et ses sous-traitants techniques, dans le strict cadre de l'exécution du service. Elles ne sont jamais vendues à des tiers.",
           "Les sous-traitants auxquels nous faisons appel sont contractuellement tenus de respecter la confidentialité et la sécurité de vos données, conformément à l'article 28 du RGPD.",
         ],
       },
@@ -138,7 +138,7 @@ const SECTIONS = [
       {
         type: "paragraphs",
         items: [
-          "FabFinance met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre toute perte, destruction, altération, accès ou divulgation non autorisés.",
+          "ISEUT Finance met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre toute perte, destruction, altération, accès ou divulgation non autorisés.",
         ],
       },
       {
@@ -184,7 +184,7 @@ const SECTIONS = [
       {
         type: "paragraphs",
         items: [
-          "Pour exercer vos droits, contactez notre DPO par email à dpo@fab-financeaide.com, en joignant une copie de votre pièce d'identité. Nous répondrons dans un délai d'un mois à compter de la réception de votre demande.",
+          "Pour exercer vos droits, contactez notre DPO par email à dpo@iseutfinance.com, en joignant une copie de votre pièce d'identité. Nous répondrons dans un délai d'un mois à compter de la réception de votre demande.",
           "Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la CNIL : www.cnil.fr ou 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07.",
         ],
       },
@@ -223,7 +223,7 @@ const SECTIONS = [
       {
         type: "paragraphs",
         items: [
-          "FabFinance se réserve le droit de modifier la présente politique de confidentialité à tout moment, notamment pour se conformer à toute évolution légale, jurisprudentielle, éditoriale ou technique.",
+          "ISEUT Finance se réserve le droit de modifier la présente politique de confidentialité à tout moment, notamment pour se conformer à toute évolution légale, jurisprudentielle, éditoriale ou technique.",
           "En cas de modification substantielle, vous serez informé par email ou par un bandeau visible sur le site. La version en vigueur est toujours accessible depuis le pied de page du site.",
           "Date de la dernière mise à jour : " + LAST_UPDATE,
         ],
@@ -301,7 +301,7 @@ export default function PolitiqueConfidentialite() {
                 Vos données sont protégées
               </p>
               <p className="text-sm text-green-800 leading-relaxed">
-                FabFinance est conforme au Règlement Général sur la Protection des Données (RGPD – UE 2016/679).
+                ISEUT Finance est conforme au Règlement Général sur la Protection des Données (RGPD – UE 2016/679).
                 Vos données ne sont jamais vendues et sont traitées avec le plus grand soin.
               </p>
             </div>
@@ -408,8 +408,8 @@ export default function PolitiqueConfidentialite() {
           >
             <p className="text-xs text-gray-400 leading-relaxed max-w-2xl mx-auto mb-4">
               Pour exercer vos droits ou pour toute question relative à cette politique, contactez notre DPO à{" "}
-              <a href="mailto:dpo@fab-financeaide.com" className="text-green-600 hover:underline font-medium">
-                dpo@fab-financeaide.com
+              <a href="mailto:dpo@iseutfinance.com" className="text-green-600 hover:underline font-medium">
+                dpo@iseutfinance.com
               </a>
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-400">

@@ -19,7 +19,7 @@ export default function MissionSection() {
   const s = t.mission
 
   return (
-    <section className="py-20 bg-gray-50 overflow-hidden">
+    <section className="py-20 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
@@ -29,12 +29,12 @@ export default function MissionSection() {
             className="relative">
 
             <div className="absolute -top-6 -left-6 w-full h-full rounded-3xl"
-              style={{ background: "linear-gradient(135deg, #16a34a22 0%, #16a34a08 100%)" }} />
+              style={{ background: "linear-gradient(135deg, hsl(var(--primary) / 0.13) 0%, hsl(var(--primary) / 0.03) 100%)" }} />
 
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?q=80&w=2000&auto=format&fit=crop"
-                alt="Conseiller FabFinance"
+                alt="Conseiller ISEUT Finance"
                 className="w-full h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-black/30 via-transparent to-transparent" />
@@ -51,7 +51,7 @@ export default function MissionSection() {
                   ))}
                 </div>
                 <div>
-                  <div className="text-sm font-extrabold text-gray-900">{s.stats.clients}</div>
+                  <div className="text-sm font-extrabold text-gray-900 font-ledger">{s.stats.clients}</div>
                   <div className="text-xs text-gray-500">{s.stats.clientsLabel}</div>
                 </div>
               </motion.div>
@@ -60,8 +60,8 @@ export default function MissionSection() {
               <motion.div initial={{ opacity: 0, scale: 0.85 }} whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }} transition={{ delay: 0.55, duration: 0.5 }}
                 className="absolute top-6 right-6 bg-white rounded-2xl px-4 py-3 shadow-xl text-center">
-                <div className="text-2xl font-extrabold text-gray-900">
-                  {s.stats.rating}<span className="text-green-500">/5</span>
+                <div className="text-2xl font-extrabold text-gray-900 font-ledger">
+                  {s.stats.rating}<span className="text-accent">/5</span>
                 </div>
                 <div className="flex justify-center gap-0.5 my-1">
                   {[...Array(5)].map((_, i) => (
@@ -79,13 +79,13 @@ export default function MissionSection() {
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}>
 
-            <span className="inline-flex items-center gap-2 text-green-600 text-sm font-bold uppercase tracking-widest mb-5">
-              <span className="w-5 h-0.5 bg-green-500 rounded-full" />{s.badge}
+            <span className="inline-flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-5">
+              <span className="w-5 h-0.5 bg-accent rounded-full" />{s.badge}
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-5">
               {s.title}{" "}
-              <span style={{ background: "linear-gradient(135deg, #16a34a 0%, #22c55e 100%)",
+              <span style={{ background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                 {s.titleHighlight}
               </span>
@@ -117,8 +117,8 @@ export default function MissionSection() {
             </div>
 
             <Link href={routes.about}
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-              style={{ background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)", boxShadow: "0 6px 20px rgba(22,163,74,0.35)" }}>
+              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-accent-foreground text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+              style={{ background: "linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(38 68% 46%) 100%)", boxShadow: "0 6px 20px hsl(38 68% 54% / 0.35)" }}>
               {s.cta}
               <ArrowRight className="w-4 h-4" />
             </Link>

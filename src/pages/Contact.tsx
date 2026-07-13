@@ -22,7 +22,7 @@ const CONTACT_INFO = [
   {
     icon: MapPin,
     title: "Siège social",
-    lines: ["52 RUE DU DOCTEUR SULTZER 67140 BARR, FRANCE"],
+    lines: ["31 AVENUE TRUDAINE 75009 PARIS"],
     color: "#16a34a",
     bg: "#f0fdf4",
   },
@@ -36,7 +36,7 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     title: "Email",
-    lines: ["contact@fab-financeaide.com", "Réponse sous 24h"],
+    lines: ["contact@iseutfinance.com", "Réponse sous 24h"],
     color: "#8b5cf6",
     bg: "#f5f3ff",
   },

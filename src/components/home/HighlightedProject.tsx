@@ -58,17 +58,17 @@ export default function HighlightedProject() {
   ]
 
   return (
-    <section className="py-10 bg-white overflow-hidden"
+    <section className="py-10 bg-card overflow-hidden"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="inline-flex items-center gap-2 text-green-600 text-sm font-bold uppercase tracking-widest mb-3">
-            <span className="w-5 h-0.5 bg-green-500 rounded-full" />{s.badge}<span className="w-5 h-0.5 bg-green-500 rounded-full" />
+          <span className="inline-flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-3">
+            <span className="w-5 h-0.5 bg-accent rounded-full" />{s.badge}<span className="w-5 h-0.5 bg-accent rounded-full" />
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">{s.title}</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground">{s.title}</h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
@@ -90,13 +90,13 @@ export default function HighlightedProject() {
               <div className="flex text-yellow-400 gap-0.5">
                 {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}
               </div>
-              <span className="text-sm font-bold text-gray-900">4.8</span>
+              <span className="text-sm font-bold text-gray-900 font-ledger">4.8</span>
               <span className="text-gray-400 text-xs">· {s.trustBadges.rating}</span>
             </div>
 
             {/* Badge sécurité */}
             <div className="absolute top-5 right-5 bg-white/95 backdrop-blur-sm px-3.5 py-2 rounded-xl shadow-lg flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-green-600" />
+              <ShieldCheck className="w-4 h-4 text-primary" />
               <span className="text-sm font-semibold text-gray-800">{s.trustBadges.secure}</span>
             </div>
 
@@ -152,7 +152,7 @@ export default function HighlightedProject() {
             <AnimatePresence mode="wait">
               <motion.div key={index + "text"} variants={textVariants} initial="enter"
                 animate="center" exit="exit" transition={{ duration: 0.4, ease: "easeOut" }}>
-                <h3 className="text-4xl xl:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
+                <h3 className="text-4xl xl:text-5xl font-extrabold text-foreground leading-tight mb-5">
                   {slide.title}
                 </h3>
                 <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-md">{slide.description}</p>
@@ -160,7 +160,7 @@ export default function HighlightedProject() {
                 <div className="flex flex-wrap gap-4 mb-8">
                   {PROOFS.map(({ icon: Icon, text }) => (
                     <div key={text} className="flex items-center gap-2 text-sm text-gray-500">
-                      <Icon className="w-4 h-4 text-green-500 flex-shrink-0" />{text}
+                      <Icon className="w-4 h-4 text-accent flex-shrink-0" />{text}
                     </div>
                   ))}
                 </div>

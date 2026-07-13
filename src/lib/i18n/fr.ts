@@ -84,7 +84,7 @@ export const fr = {
       monthlyLabel: "Mensualité estimée",
       interestLabel:"Coût total intérêts",
       rateNote:    "TAEG fixe indicatif : 3% · Simulation non contractuelle",
-      nofees:      "Sans frais de dossier",
+      nofees:      "Faible frais de dossier",
       instant:     "Réponse immédiate",
       cta:         "Trouver mon crédit",
       legal:       "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.",
@@ -123,7 +123,7 @@ export const fr = {
       {
         title:       "Organiser un mariage",
         description: "Préparez votre grand jour en toute sérénité.",
-        tag:         "Sans frais de dossier",
+        tag:         "Faible frais de dossier",
       },
     ],
   },
@@ -195,10 +195,10 @@ export const fr = {
 
   // ── Mission Section ──────────────────────────────────────────────────────────
   mission: {
-    badge:      "FabFinance & Vous",
+    badge:      "ISEUT Finance & Vous",
     title:      "Le financement qui",
     titleHighlight: "fait la différence",
-    text1:      "Chez FabFinance, nous mettons notre expertise au service de vos projets de vie. Prêt personnel, crédit consommation, prêt auto ou rachat de crédit : des solutions simples, transparentes et adaptées à chaque situation.",
+    text1:      "Chez ISEUT Finance, nous mettons notre expertise au service de vos projets de vie. Prêt personnel, crédit consommation, prêt auto ou rachat de crédit : des solutions simples, transparentes et adaptées à chaque situation.",
     text2:      "Notre mission est de rendre le financement plus accessible grâce à des outils digitaux innovants et à un accompagnement humain à chaque étape.",
     cta:        "Découvrir notre mission",
     stats: {
@@ -219,7 +219,7 @@ export const fr = {
   whyChooseUs: {
     badge:    "Nos engagements",
     title:    "Pourquoi choisir",
-    titleHighlight: "FabFinance ?",
+    titleHighlight: "ISEUT Finance ?",
     subtitle: "Technologie et expertise humaine réunies pour une expérience de financement simple, rapide et fiable.",
     items: [
       {
@@ -260,7 +260,7 @@ export const fr = {
     badge:    "Preuve sociale",
     title:    "Ils nous font",
     titleHighlight: "confiance",
-    subtitle: "Des milliers de clients font confiance à FabFinance pour financer leurs projets personnels et professionnels.",
+    subtitle: "Des milliers de clients font confiance à ISEUT Finance pour financer leurs projets personnels et professionnels.",
     certifiedBy: "Reconnu et certifié par",
     stats: [
       { value: "+200 000", label: "projets financés"     },
@@ -284,7 +284,7 @@ export const fr = {
       {
         name: "Claire Dupont",
         role: "Travaux · 25 000€",
-        text: "Service client vraiment professionnel et disponible. Ils m'ont accompagnée de A à Z pour financer ma rénovation. Merci FabFinance !",
+        text: "Service client vraiment professionnel et disponible. Ils m'ont accompagnée de A à Z pour financer ma rénovation. Merci ISEUT Finance !",
       },
     ],
   },
@@ -316,7 +316,7 @@ export const fr = {
       },
       {
         q: "Y a-t-il des frais de dossier ?",
-        a: "Oui. FabFinance facture des frais de dossier qui sont très faibles.  La simulation est gratuite et sans engagement. Vous ne payez que les intérêts définis dans votre contrat.",
+        a: "Oui. ISEUT Finance facture des frais de dossier qui sont très faibles.  La simulation est gratuite et sans engagement. Vous ne payez que les intérêts définis dans votre contrat.",
       },
       {
         q: "Quel est le montant maximum que je peux emprunter ?",
@@ -340,7 +340,7 @@ export const fr = {
       secure:   "100% sécurisé",
       clients:  "+200 000 clients satisfaits",
     },
-    legal: "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. FabFinance — ORIAS n° XXXXXXXX.",
+    legal: "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager. ISEUT Finance — ORIAS n° XXXXXXXX.",
   },
 
   // ── Simulator page ───────────────────────────────────────────────────────────
@@ -355,7 +355,7 @@ export const fr = {
     totalInterest:  "Coût des intérêts",
     cta:            "Demander mon prêt",
     legal:          "Simulation non contractuelle",
-    nofees:         "Sans frais de dossier",
+    nofees:         "Faible frais de dossier",
     instant:        "Réponse immédiate",
   },
 
@@ -365,9 +365,9 @@ export const fr = {
     title:     "Comment obtenir votre prêt ?",
     subtitle:  "De la simulation au versement des fonds, découvrez chaque étape.",
     steps:     "6 étapes simples",
-    journey:   "Le parcours FabFinance",
+    journey:   "Le parcours ISEUT Finance",
     guarantee: "Nos engagements",
-    whyUs:     "Pourquoi choisir FabFinance ?",
+    whyUs:     "Pourquoi choisir ISEUT Finance ?",
     cta:       "Démarrer ma simulation",
     ctaSub:    "Gratuit · Sans engagement · Réponse en 2 minutes",
   },
@@ -376,7 +376,7 @@ export const fr = {
   about: {
     badge:    "Notre histoire",
     title:    "Une fintech au service de vos projets",
-    subtitle: "Depuis 2016, FabFinance accompagne particuliers et professionnels dans leurs projets de financement.",
+    subtitle: "Depuis 2016, ISEUT Finance accompagne particuliers et professionnels dans leurs projets de financement.",
     mission:  "Notre mission",
     values:   "Nos valeurs",
     team:     "Notre équipe",

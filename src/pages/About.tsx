@@ -42,7 +42,7 @@ const VALUES = [
 ]
 
 const TIMELINE = [
-  { year: "2016", event: "Fondation de FabFinance à Paris avec une mission claire : démocratiser le crédit." },
+  { year: "2016", event: "Fondation de ISEUT Finance à Paris avec une mission claire : démocratiser le crédit." },
   { year: "2018", event: "Lancement du simulateur en ligne — réponse de principe en moins de 2 minutes." },
   { year: "2020", event: "Franchissement du cap des 100 000 clients et obtention de l'agrément ORIAS." },
   { year: "2022", event: "Expansion européenne et lancement des prêts professionnels et étudiants." },
@@ -64,7 +64,7 @@ export default function About() {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2400&auto=format&fit=crop"
-            alt="Équipe FabFinance"
+            alt="Équipe ISEUT Finance"
             className="w-full h-full object-cover opacity-25"
             style={{ filter: "saturate(0.6)" }}
           />
@@ -113,7 +113,7 @@ export default function About() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto mb-10"
           >
-            FabFinance s'est donnée pour mission de rendre le financement
+            ISEUT Finance s'est donnée pour mission de rendre le financement
             accessible, transparent et équitable. Fini la complexité bancaire
             traditionnelle.
           </motion.p>
@@ -420,7 +420,7 @@ export default function About() {
           </h2>
           <p className="text-gray-400 text-lg mb-10 max-w-xl mx-auto">
             Plus d'un million de clients nous font déjà confiance. À votre tour
-            de concrétiser vos projets avec FabFinance.
+            de concrétiser vos projets avec ISEUT Finance.
           </p>
           <Link
             href={routes.simulator}

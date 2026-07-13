@@ -1,4 +1,4 @@
-#  Fab Finance
+#  ISEUT FINANCE
 
 > Application de simulation de prêt et de demande de prêt — 100% frontend React
 ---

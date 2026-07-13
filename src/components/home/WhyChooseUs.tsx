@@ -11,10 +11,10 @@ export default function WhyChooseUs() {
   const s = t.whyChooseUs
 
   return (
-    <section className="py-10 bg-white overflow-hidden relative">
+    <section className="py-10 bg-card overflow-hidden relative">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] opacity-[0.035] blur-3xl rounded-full"
-          style={{ background: "radial-gradient(ellipse, #16a34a 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(ellipse, hsl(var(--primary)) 0%, transparent 70%)" }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -22,12 +22,12 @@ export default function WhyChooseUs() {
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 text-green-600 text-sm font-bold uppercase tracking-widest mb-4">
-            <span className="w-5 h-0.5 bg-green-500 rounded-full" />{s.badge}<span className="w-5 h-0.5 bg-green-500 rounded-full" />
+          <span className="inline-flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-4">
+            <span className="w-5 h-0.5 bg-accent rounded-full" />{s.badge}<span className="w-5 h-0.5 bg-accent rounded-full" />
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
             {s.title}{" "}
-            <span style={{ background: "linear-gradient(135deg, #16a34a 0%, #22c55e 100%)",
+            <span style={{ background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               {s.titleHighlight}
             </span>
@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
                   </div>
 
                   <div className="mb-5">
-                    <div className="text-3xl font-extrabold leading-none" style={{ color }}>
+                    <div className="text-3xl font-extrabold leading-none font-ledger" style={{ color }}>
                       {item.stat}
                     </div>
                     <div className="text-xs text-gray-400 mt-1 font-medium uppercase tracking-wide">
@@ -83,11 +83,11 @@ export default function WhyChooseUs() {
         {/* Bande métriques */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-14 rounded-2xl border border-gray-100 bg-gray-50 px-8 py-6 flex flex-wrap items-center justify-between gap-6">
+          className="mt-14 rounded-2xl border border-border bg-muted px-8 py-6 flex flex-wrap items-center justify-between gap-6">
           {s.metrics.map(({ value, label }) => (
             <div key={label} className="text-center flex-1 min-w-[100px]">
-              <div className="text-2xl font-extrabold" style={{
-                background: "linear-gradient(135deg, #16a34a 0%, #22c55e 100%)",
+              <div className="text-2xl font-extrabold font-ledger" style={{
+                background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
               }}>{value}</div>
               <div className="text-xs text-gray-500 mt-1 font-medium">{label}</div>

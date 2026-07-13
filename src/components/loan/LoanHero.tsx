@@ -79,7 +79,7 @@ export default function LoanHero({ title, img, tagline }: Props) {
           {/* Tagline */}
           <p className="text-lg text-gray-300 leading-relaxed mb-9 max-w-xl">
             {tagline ??
-              `La solution FabFinance pour ${title.toLowerCase()} : transparence,
+              `La solution ISEUT Finance pour ${title.toLowerCase()} : transparence,
               rapidité et accompagnement humain pour tous vos projets.`}
           </p>
 

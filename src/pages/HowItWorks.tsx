@@ -48,7 +48,7 @@ const STEPS = [
     bg: "#f5f3ff",
     title: "Étude de votre dossier",
     subtitle: "Réponse sous 24h",
-    desc: "Un conseiller FabFinance dédié analyse votre dossier et vous contacte par téléphone ou WhatsApp pour affiner votre offre et répondre à toutes vos questions.",
+    desc: "Un conseiller ISEUT Finance dédié analyse votre dossier et vous contacte par téléphone ou WhatsApp pour affiner votre offre et répondre à toutes vos questions.",
     details: [
       "Conseiller personnel attitré",
       "Contact par téléphone ou WhatsApp",
@@ -125,7 +125,7 @@ const FAQS = [
   },
   {
     q: "Puis-je suivre l'avancement de mon dossier ?",
-    a: "Oui. Votre conseiller FabFinance vous tient informé à chaque étape par téléphone, email ou WhatsApp. Vous pouvez le contacter directement à tout moment.",
+    a: "Oui. Votre conseiller ISEUT Finance vous tient informé à chaque étape par téléphone, email ou WhatsApp. Vous pouvez le contacter directement à tout moment.",
   },
 ]
 
@@ -227,7 +227,7 @@ export default function HowItWorks() {
             <span className="w-4 h-0.5 bg-green-500 rounded-full" />
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-            Le parcours FabFinance
+            Le parcours ISEUT Finance
           </h2>
         </motion.div>
 
@@ -368,7 +368,7 @@ export default function HowItWorks() {
               <span className="w-4 h-0.5 bg-green-500 rounded-full" />
             </span>
             <h2 className="text-3xl font-extrabold text-gray-900">
-              Pourquoi choisir FabFinance ?
+              Pourquoi choisir ISEUT Finance ?
             </h2>
           </motion.div>
 
@@ -541,7 +541,7 @@ export default function HowItWorks() {
             </Link>
 
             <a
-              href="https://wa.me/33612345678?text=Bonjour%20FabFinance%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20prêts."
+              href="https://wa.me/33612345678?text=Bonjour%20ISEUT Finance%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20vos%20prêts."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-white text-sm border border-white/20 bg-white/8 hover:bg-white/15 transition-all duration-200"

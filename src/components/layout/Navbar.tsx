@@ -72,13 +72,13 @@ export function Navbar() {
         {/* ── LOGO ── */}
         <Link href={routes.home} className="flex items-center gap-2.5 group flex-shrink-0">
           <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:scale-105"
-            style={{ background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)" }}
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-105"
+            style={{ background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(221 46% 14%) 100%)" }}
           >
             <Landmark className="w-4.5 h-4.5" />
           </div>
-          <span className="font-extrabold text-xl tracking-tight text-gray-900">
-            Fab<span className="text-green-600">Finance</span>
+          <span className="font-extrabold text-xl tracking-tight text-foreground">
+            Fab<span className="text-accent">Finance</span>
           </span>
         </Link>
 
@@ -96,7 +96,7 @@ export function Navbar() {
               onMouseLeave={() => setLoansOpen(false)}
               onClick={() => setLoansOpen(v => !v)}
               className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 ${
-                loansOpen ? "text-green-600 bg-green-50" : "text-gray-600 hover:text-green-600 hover:bg-gray-50"
+                loansOpen ? "text-primary bg-accent/15" : "text-gray-600 hover:text-primary hover:bg-gray-50"
               }`}
             >
               {t.nav.loans}
@@ -141,13 +141,13 @@ export function Navbar() {
                     <Link
                       href={routes.simulator}
                       onClick={() => setLoansOpen(false)}
-                      className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-green-50 hover:bg-green-100 transition-colors group/sim"
+                      className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-accent/15 hover:bg-accent/25 transition-colors group/sim"
                     >
                       <div>
-                        <div className="text-sm font-semibold text-green-700">{t.common.simulate}</div>
-                        <div className="text-xs text-green-600/80">{t.common.noCommit}</div>
+                        <div className="text-sm font-semibold text-primary">{t.common.simulate}</div>
+                        <div className="text-xs text-primary/70">{t.common.noCommit}</div>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-green-600 group-hover/sim:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 text-primary group-hover/sim:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.div>
@@ -195,7 +195,7 @@ export function Navbar() {
                       onClick={() => { switchLang(l.code as any); setLangOpen(false); }}
                       className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
                         lang === l.code
-                          ? "bg-green-50 text-green-700 font-semibold"
+                          ? "bg-accent/15 text-primary font-semibold"
                           : "text-gray-700 hover:bg-gray-50"
                       }`}
                     >
@@ -211,10 +211,10 @@ export function Navbar() {
           {/* CTA */}
           <Link
             href={routes.simulator}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-accent-foreground transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
             style={{
-              background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)",
-              boxShadow: "0 4px 14px rgba(22,163,74,0.35)",
+              background: "linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(38 68% 46%) 100%)",
+              boxShadow: "0 4px 14px hsl(38 68% 54% / 0.35)",
             }}
           >
             {t.hero.cta1}
@@ -245,7 +245,7 @@ export function Navbar() {
                       key={l.code}
                       onClick={() => { switchLang(l.code as any); setLangOpen(false); }}
                       className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm ${
-                        lang === l.code ? "bg-green-50 text-green-700 font-semibold" : "text-gray-700 hover:bg-gray-50"
+                        lang === l.code ? "bg-accent/15 text-primary font-semibold" : "text-gray-700 hover:bg-gray-50"
                       }`}
                     >
                       <span className="text-base">{l.flag}</span>
@@ -294,7 +294,7 @@ export function Navbar() {
                   href={href}
                   onClick={closeMobile}
                   className={`px-4 py-3 rounded-xl text-base font-semibold transition-colors ${
-                    isActive(href) ? "bg-green-50 text-green-700" : "text-gray-700 hover:bg-gray-50"
+                    isActive(href) ? "bg-accent/15 text-primary" : "text-gray-700 hover:bg-gray-50"
                   }`}
                 >
                   {label}
@@ -350,10 +350,10 @@ export function Navbar() {
               <Link
                 href={routes.simulator}
                 onClick={closeMobile}
-                className="mt-3 flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-white font-bold text-base transition-all"
+                className="mt-3 flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-accent-foreground font-bold text-base transition-all"
                 style={{
-                  background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)",
-                  boxShadow: "0 4px 14px rgba(22,163,74,0.35)",
+                  background: "linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(38 68% 46%) 100%)",
+                  boxShadow: "0 4px 14px hsl(38 68% 54% / 0.35)",
                 }}
               >
                 {t.hero.cta1}
@@ -372,14 +372,14 @@ function NavLink({ href, active, children }: { href: string; active: boolean; ch
     <Link
       href={href}
       className={`relative px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 ${
-        active ? "text-green-700 bg-green-50" : "text-gray-600 hover:text-green-700 hover:bg-gray-50"
+        active ? "text-primary bg-accent/15" : "text-gray-600 hover:text-primary hover:bg-gray-50"
       }`}
     >
       {children}
       {active && (
         <motion.span
           layoutId="nav-indicator"
-          className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-green-500"
+          className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent"
         />
       )}
     </Link>

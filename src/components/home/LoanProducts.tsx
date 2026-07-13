@@ -20,10 +20,10 @@ export default function LoanProducts() {
   const [hovered, setHovered] = useState<number | null>(null)
 
   return (
-    <section className="py-10 bg-gray-50 relative overflow-hidden">
+    <section className="py-10 bg-background relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] opacity-[0.05] blur-3xl"
-          style={{ background: "radial-gradient(circle, #16a34a 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -31,10 +31,10 @@ export default function LoanProducts() {
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-14">
-          <span className="inline-flex items-center gap-2 text-green-600 text-sm font-bold uppercase tracking-widest mb-4">
-            <span className="w-5 h-0.5 bg-green-500 rounded-full" />{s.badge}<span className="w-5 h-0.5 bg-green-500 rounded-full" />
+          <span className="inline-flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-4">
+            <span className="w-5 h-0.5 bg-accent rounded-full" />{s.badge}<span className="w-5 h-0.5 bg-accent rounded-full" />
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">{s.title}</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">{s.title}</h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto">{s.subtitle}</p>
         </motion.div>
 
@@ -79,7 +79,7 @@ export default function LoanProducts() {
                             <motion.div key="normal" initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.18 }}
                               className="absolute inset-0 flex flex-col">
-                              <p className="text-sm font-bold text-gray-900 text-center mb-2">{product.title}</p>
+                              <p className="text-sm font-bold text-foreground text-center mb-2">{product.title}</p>
                               <p className="text-xs text-gray-500 text-center leading-relaxed">{product.description}</p>
                             </motion.div>
                           )}
@@ -89,12 +89,12 @@ export default function LoanProducts() {
                               className="absolute inset-0 flex flex-col items-center justify-center text-center">
                               <p className="text-[11px] font-semibold uppercase tracking-wider mb-2"
                                 style={{ color: credit.accent + "aa" }}>{s.example}</p>
-                              <p className="text-xs text-gray-600 mb-3">
+                              <p className="text-xs text-gray-600 mb-3 font-ledger">
                                 {credit.exampleAmount.toLocaleString("fr-FR")} €
                                 <span className="text-gray-400"> · </span>
                                 {credit.exampleDuration} {t.common.monthly}
                               </p>
-                              <div className="text-3xl font-extrabold" style={{ color: credit.accent }}>
+                              <div className="text-3xl font-extrabold font-ledger" style={{ color: credit.accent }}>
                                 {monthlyPayment.toFixed(0)} €
                               </div>
                               <p className="text-[11px] text-gray-400 mt-1">{s.perMonth}</p>
@@ -121,8 +121,8 @@ export default function LoanProducts() {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="text-center mt-12">
           <Link href={routes.simulator}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-            style={{ background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)", boxShadow: "0 6px 20px rgba(22,163,74,0.35)" }}>
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-accent-foreground text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            style={{ background: "linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(38 68% 46%) 100%)", boxShadow: "0 6px 20px hsl(38 68% 54% / 0.35)" }}>
             {s.cta}
             <ArrowRight className="w-4 h-4" />
           </Link>

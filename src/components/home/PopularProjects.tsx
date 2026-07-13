@@ -18,19 +18,19 @@ export default function PopularProjects() {
   const s = t.popularProjects
 
   return (
-    <section className="py-10 bg-gray-50 relative overflow-hidden">
+    <section className="py-10 bg-background relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] opacity-[0.04] blur-3xl pointer-events-none"
-        style={{ background: "radial-gradient(ellipse, #16a34a 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(ellipse, hsl(var(--primary)) 0%, transparent 70%)" }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-14">
-          <span className="inline-flex items-center gap-2 text-green-600 text-sm font-bold uppercase tracking-widest mb-4">
-            <span className="w-5 h-0.5 bg-green-500 rounded-full" />
+          <span className="inline-flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-4">
+            <span className="w-5 h-0.5 bg-accent rounded-full" />
             {s.badge}
-            <span className="w-5 h-0.5 bg-green-500 rounded-full" />
+            <span className="w-5 h-0.5 bg-accent rounded-full" />
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">{s.title}</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">{s.title}</h2>
           <p className="text-gray-500 max-w-xl mx-auto text-lg">{s.subtitle}</p>
         </motion.div>
 
@@ -39,7 +39,7 @@ export default function PopularProjects() {
             <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}>
               <Link href={`${routes.loans}${HREFS[i].replace("/loans", "")}`}>
-                <div className="group relative bg-white rounded-2xl overflow-hidden cursor-pointer h-full flex flex-col border border-gray-100 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-green-200"
+                <div className="group relative bg-card rounded-2xl overflow-hidden cursor-pointer h-full flex flex-col border border-border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-accent/40"
                   style={{ boxShadow: "0 2px 16px rgba(0,0,0,0.06)" }}>
                   <div className="relative h-40 overflow-hidden">
                     <img src={IMAGES[i]} alt={p.title}
@@ -49,22 +49,22 @@ export default function PopularProjects() {
                       {EMOJIS[i]}
                     </div>
                     <div className="absolute bottom-3 left-3 right-3">
-                      <span className="inline-block text-[11px] font-bold text-white bg-green-600/90 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                      <span className="inline-block text-[11px] font-bold text-primary-foreground bg-primary/90 backdrop-blur-sm px-2.5 py-1 rounded-full">
                         {p.tag}
                       </span>
                     </div>
                   </div>
                   <div className="p-4 flex flex-col flex-grow">
-                    <h3 className="font-bold text-gray-900 text-sm mb-1.5 leading-snug">{p.title}</h3>
+                    <h3 className="font-bold text-foreground text-sm mb-1.5 leading-snug">{p.title}</h3>
                     <p className="text-xs text-gray-500 leading-relaxed flex-grow">{p.description}</p>
                     <div className="mt-4 flex items-center justify-between">
-                      <span className="text-xs font-semibold text-green-600 group-hover:text-green-700">{s.learnMore}</span>
-                      <div className="w-7 h-7 rounded-full bg-green-50 flex items-center justify-center transition-all duration-300 group-hover:bg-green-600">
-                        <ArrowRight className="w-3.5 h-3.5 text-green-600 group-hover:text-white transition-colors duration-300 group-hover:translate-x-0.5" />
+                      <span className="text-xs font-semibold text-primary group-hover:text-accent">{s.learnMore}</span>
+                      <div className="w-7 h-7 rounded-full bg-accent/15 flex items-center justify-center transition-all duration-300 group-hover:bg-accent">
+                        <ArrowRight className="w-3.5 h-3.5 text-primary group-hover:text-accent-foreground transition-colors duration-300 group-hover:translate-x-0.5" />
                       </div>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
               </Link>
             </motion.div>
@@ -74,8 +74,8 @@ export default function PopularProjects() {
         <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }} className="text-center mt-12">
           <Link href={routes.simulator}
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-white text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-            style={{ background: "linear-gradient(135deg, #16a34a 0%, #15803d 100%)", boxShadow: "0 6px 20px rgba(22,163,74,0.35)" }}>
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl font-bold text-accent-foreground text-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+            style={{ background: "linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(38 68% 46%) 100%)", boxShadow: "0 6px 20px hsl(38 68% 54% / 0.35)" }}>
             {s.cta}
             <ArrowRight className="w-4 h-4" />
           </Link>

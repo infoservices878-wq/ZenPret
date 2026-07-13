@@ -25,7 +25,7 @@ interface CookieContextType {
 // STORAGE KEY
 // ─────────────────────────────────────────────
 
-const STORAGE_KEY = "fabfinance_cookie_consent"
+const STORAGE_KEY = "ISEUT Finance_cookie_consent"
 
 function loadFromStorage(): { status: ConsentStatus; preferences: CookiePreferences } | null {
   try {

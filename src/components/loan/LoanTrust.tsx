@@ -64,7 +64,7 @@ export default function LoanTrust() {
             Ils nous font confiance
           </h2>
           <p className="text-gray-400 text-sm">
-            Plus de 200 000 projets financés avec FabFinance
+            Plus de 200 000 projets financés avec ISEUT Finance
           </p>
         </div>
 

@@ -17,10 +17,10 @@ export default function TrustSection() {
   const s = t.trust
 
   return (
-    <section className="py-10 bg-gray-50 overflow-hidden relative">
+    <section className="py-10 bg-card overflow-hidden relative">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-20 right-0 w-[500px] h-[500px] opacity-[0.05] blur-3xl rounded-full"
-          style={{ background: "radial-gradient(circle, #16a34a 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)" }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
@@ -28,12 +28,12 @@ export default function TrustSection() {
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-14">
-          <span className="inline-flex items-center gap-2 text-green-600 text-sm font-bold uppercase tracking-widest mb-4">
-            <span className="w-5 h-0.5 bg-green-500 rounded-full" />{s.badge}<span className="w-5 h-0.5 bg-green-500 rounded-full" />
+          <span className="inline-flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest mb-4">
+            <span className="w-5 h-0.5 bg-accent rounded-full" />{s.badge}<span className="w-5 h-0.5 bg-accent rounded-full" />
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4">
             {s.title}{" "}
-            <span style={{ background: "linear-gradient(135deg, #16a34a 0%, #22c55e 100%)",
+            <span style={{ background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               {s.titleHighlight}
             </span>
@@ -55,7 +55,7 @@ export default function TrustSection() {
                 <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style={{ background: bg }}>
                   <Icon className="w-5 h-5" style={{ color }} />
                 </div>
-                <div className="text-2xl font-extrabold" style={{ color }}>{stat.value}</div>
+                <div className="text-2xl font-extrabold font-ledger" style={{ color }}>{stat.value}</div>
                 <div className="text-xs text-gray-500 mt-1 font-medium">{stat.label}</div>
               </motion.div>
             )
@@ -68,11 +68,11 @@ export default function TrustSection() {
             <motion.div key={i} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`relative rounded-2xl p-7 border flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
-                review.featured ? "bg-gray-900 border-gray-800" : "bg-white border-gray-100"
+                review.featured ? "bg-[hsl(221_46%_14%)] border-[hsl(221_46%_20%)]" : "bg-white border-gray-100"
               }`}
               style={{ boxShadow: review.featured ? "0 20px 60px rgba(0,0,0,0.18)" : "0 2px 16px rgba(0,0,0,0.05)" }}>
 
-              <Quote className={`w-8 h-8 mb-4 opacity-20 ${review.featured ? "text-green-400" : "text-gray-400"}`} />
+              <Quote className={`w-8 h-8 mb-4 opacity-20 ${review.featured ? "text-accent" : "text-gray-400"}`} />
 
               <div className="flex gap-0.5 mb-4">
                 {[...Array(5)].map((_, s) => (
@@ -88,18 +88,18 @@ export default function TrustSection() {
                 <img
                   src={`https://images.unsplash.com/photo-${REVIEW_AVATARS[i]}?w=48&h=48&fit=crop&crop=face`}
                   alt={review.name}
-                  className="w-10 h-10 rounded-full object-cover ring-2 ring-green-500/30"
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-accent/30"
                 />
                 <div>
                   <div className={`text-sm font-bold flex items-center gap-1.5 ${review.featured ? "text-white" : "text-gray-900"}`}>
-                    {review.name}<BadgeCheck className="w-3.5 h-3.5 text-green-500" />
+                    {review.name}<BadgeCheck className="w-3.5 h-3.5 text-accent" />
                   </div>
                   <div className="text-xs mt-0.5 text-gray-400">{review.role}</div>
                 </div>
               </div>
 
               {review.featured && (
-                <div className="absolute top-5 right-5 bg-green-500 text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                <div className="absolute top-5 right-5 bg-accent text-accent-foreground text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
                   {review.featuredLabel}
                 </div>
               )}
@@ -117,7 +117,7 @@ export default function TrustSection() {
           </span>
           {["ORIAS", "Banque de France", "ACPR", "RGPD Compliant"].map(name => (
             <div key={name} className="flex items-center gap-2 text-sm font-semibold text-gray-500">
-              <ShieldCheck className="w-4 h-4 text-green-500" />{name}
+              <ShieldCheck className="w-4 h-4 text-primary" />{name}
             </div>
           ))}
         </motion.div>
