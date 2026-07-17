@@ -16,8 +16,37 @@ export function getLangFromPath(path: string): Language {
   return LANGUAGES.find(l => l.code === segment) ? segment : "fr"
 }
 
-/** Remplace le préfixe de langue dans un chemin */
+/** Remplace le préfixe de langue dans un chemin ET traduit le slug de la route */
 export function switchLangInPath(path: string, newLang: Language): string {
+  const oldLang = getLangFromPath(path)
+  const oldRoutes = ROUTES[oldLang]
+  const newRoutes = ROUTES[newLang]
+
+  // 1) Correspondance exacte (home, about, contact, simulator, etc.)
+  for (const key of Object.keys(oldRoutes)) {
+    if (path === oldRoutes[key]) {
+      return newRoutes[key]
+    }
+  }
+
+  // 2) Correspondance par préfixe pour les routes avec paramètre (ex: /fr/loans/personnel)
+  //    On garde le préfixe le plus long pour éviter qu'un préfixe court (comme "/fr" pour home)
+  //    ne matche par erreur avant le bon préfixe (comme "/fr/loans").
+  let bestKey: string | null = null
+  let bestBase = ""
+  for (const key of Object.keys(oldRoutes)) {
+    const oldBase = oldRoutes[key]
+    if (path.startsWith(oldBase + "/") && oldBase.length > bestBase.length) {
+      bestKey = key
+      bestBase = oldBase
+    }
+  }
+  if (bestKey) {
+    const rest = path.slice(bestBase.length)
+    return newRoutes[bestKey] + rest
+  }
+
+  // 3) Repli : ancien comportement (remplace juste le segment de langue)
   const segments = path.split("/")
   segments[1] = newLang
   return segments.join("/")

@@ -402,7 +402,7 @@ export const fr = {
 
   // ── Footer ───────────────────────────────────────────────────────────────────
   footer: {
-    tagline:    "Votre partenaire de confiance pour tous vos projets de financement.",
+    tagline: "FabFinance vous accompagne dans tous vos projets de vie avec des solutions de financement simples, transparentes et adaptées.",
     ctaTitle:   "Prêt à financer votre projet ?",
     ctaSub:     "Simulation gratuite · Réponse en 2 minutes · Sans engagement",
     ctaButton:  "Simuler mon prêt",

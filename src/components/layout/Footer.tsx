@@ -18,10 +18,10 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   const LEGAL_LINKS = [
-  { label: "Mentions légales",             href: routes.legal   },
-  { label: "Politique de confidentialité", href: routes.privacy },
-  { label: "Comment ça marche",            href: routes.howItWorks },
-  { label: "Gestion des cookies",          href: routes.cookies },
+  { label: t.footer.legalLinks.mentions,   href: routes.legal   },
+  { label: t.footer.legalLinks.privacy,    href: routes.privacy },
+  { label: t.footer.legalLinks.howItWorks, href: routes.howItWorks },
+  { label: t.footer.legalLinks.cookies,    href: routes.cookies },
 ]
 
   return (
@@ -43,8 +43,8 @@ export function Footer() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <p className="text-white font-bold text-xl">Prêt à financer votre projet ?</p>
-            <p className="text-gray-400 text-sm mt-1">Simulation gratuite · Réponse en 2 minutes · Sans engagement</p>
+            <p className="text-white font-bold text-xl">{t.footer.ctaTitle}</p>
+            <p className="text-gray-400 text-sm mt-1">{t.footer.ctaSub}</p>
           </div>
           <Link
             href={routes.simulator}
@@ -54,7 +54,7 @@ export function Footer() {
               boxShadow: "0 6px 20px rgba(22,163,74,0.40)",
             }}
           >
-            Simuler mon prêt
+            {t.footer.ctaButton}
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </div>
@@ -79,8 +79,7 @@ export function Footer() {
             </Link>
 
             <p className="text-sm text-gray-500 leading-relaxed max-w-xs">
-              FabFinance vous accompagne dans tous vos projets de vie avec des
-              solutions de financement simples, transparentes et adaptées.
+              {t.footer.tagline}
             </p>
 
             {/* Contact rapide */}
@@ -115,7 +114,7 @@ export function Footer() {
           {/* Nos prêts */}
           <div>
             <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">
-              Nos prêts
+              {t.footer.links.loans}
             </h4>
             <ul className="space-y-3">
               {[
@@ -142,7 +141,7 @@ export function Footer() {
           {/* Entreprise */}
           <div>
             <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">
-              Entreprise
+              {t.footer.links.company}
             </h4>
             <ul className="space-y-3">
               {[
@@ -166,7 +165,7 @@ export function Footer() {
           {/* Légal + Certifications */}
           <div>
             <h4 className="text-white font-bold text-sm mb-5 uppercase tracking-wider">
-              Légal
+              {t.footer.links.legal}
             </h4>
             <ul className="space-y-3 mb-7">
               {LEGAL_LINKS.map(({ label, href }) => (
