@@ -7,41 +7,20 @@ import { motion, AnimatePresence } from "framer-motion"
 
 import { useI18n } from "@/lib/i18n-context"
 
-const contactSchema = z.object({
-  firstName: z.string().min(2, "Le prénom est requis"),
-  lastName:  z.string().min(2, "Le nom est requis"),
-  email:     z.string().email("Adresse email invalide"),
-  phone:     z.string().optional(),
-  subject:   z.string().min(2, "Le sujet est requis"),
-  message:   z.string().min(10, "Le message doit contenir au moins 10 caractères"),
-})
+type ContactForm = {
+  firstName: string
+  lastName: string
+  email: string
+  phone?: string
+  subject: string
+  message: string
+}
 
-type ContactForm = z.infer<typeof contactSchema>
-
-const CONTACT_INFO = [
-  {
-    icon: MapPin,
-    title: "Siège social",
-    lines: ["52 RUE DU DOCTEUR SULTZER, 67140 BARR"],
-    color: "#16a34a",
-    bg: "#f0fdf4",
-  },
-  {
-    icon: Phone,
-    title: "Téléphone",
-    lines: ["+33 753 959 516", "Lun–Ven, 9h–18h · Gratuit"],
-    color: "#3b82f6",
-    bg: "#eff6ff",
-  },
-  {
-    icon: Mail,
-    title: "Email",
-    lines: ["contact@fab-financeaide.com", "Réponse sous 24h"],
-    color: "#8b5cf6",
-    bg: "#f5f3ff",
-  },
+const CONTACT_ICONS = [
+  { icon: MapPin, lines: ["52 RUE DU DOCTEUR SULTZER, 67140 BARR"],       color: "#16a34a", bg: "#f0fdf4" },
+  { icon: Phone,  lines: ["+33 753 959 516"],                              color: "#3b82f6", bg: "#eff6ff" },
+  { icon: Mail,   lines: ["contact@fab-financeaide.com"],                  color: "#8b5cf6", bg: "#f5f3ff" },
 ]
-
 
 const inputClass =
   "w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 text-sm transition-all duration-200 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 focus:bg-white"
@@ -50,12 +29,20 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess]       = useState(false)
 
-  const { lang, t, routes, switchLang } = useI18n();
-  
+  const { t, routes } = useI18n();
+  const s = t.contact
+
+  const contactSchema = z.object({
+    firstName: z.string().min(2, s.form.errors.firstName),
+    lastName:  z.string().min(2, s.form.errors.lastName),
+    email:     z.string().email(s.form.errors.email),
+    phone:     z.string().optional(),
+    subject:   z.string().min(2, s.form.errors.subject),
+    message:   z.string().min(10, s.form.errors.message),
+  })
+
   const QUICK_LINKS = [
-    { icon: Zap,           label: "Simuler mon prêt",   href: routes.simulator,      color: "#16a34a" },
-    // { icon: MessageSquare, label: "FAQ",                 href: "#faq",             color: "#f59e0b" },
-    // { icon: Clock,         label: "Suivi de dossier",   href: "/espace-client",   color: "#0ea5e9" },
+    { icon: Zap, label: t.common.simulate, href: routes.simulator, color: "#16a34a" },
   ]
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactForm>({
@@ -102,7 +89,7 @@ export default function Contact() {
           >
             <span className="flex h-2 w-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-green-400 text-sm font-bold uppercase tracking-widest">
-              Nous sommes là pour vous
+              {s.hero.badge}
             </span>
           </motion.div>
 
@@ -112,7 +99,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-5"
           >
-            Contactez{" "}
+            {s.hero.title}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #4ade80 0%, #16a34a 100%)",
@@ -120,7 +107,7 @@ export default function Contact() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              notre équipe
+              {s.hero.titleHighlight}
             </span>
           </motion.h1>
 
@@ -130,8 +117,7 @@ export default function Contact() {
             transition={{ duration: 0.65, delay: 0.2 }}
             className="text-lg text-gray-300 max-w-xl mx-auto"
           >
-            Nos experts sont disponibles 7j/7 pour répondre à toutes vos
-            questions sur vos projets de financement.
+            {s.hero.subtitle}
           </motion.p>
         </div>
       </section>
@@ -148,31 +134,37 @@ export default function Contact() {
             <div className="space-y-5">
 
               {/* Infos de contact */}
-              {CONTACT_INFO.map(({ icon: Icon, title, lines, color, bg }, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="bg-white rounded-2xl p-6 border border-gray-100 flex gap-4 items-start shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
-                  style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}
-                >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: bg }}
+              {s.info.map(({ title, sub }, i) => {
+                const { icon: Icon, lines, color, bg } = CONTACT_ICONS[i]
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="bg-white rounded-2xl p-6 border border-gray-100 flex gap-4 items-start shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+                    style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}
                   >
-                    <Icon className="w-5 h-5" style={{ color }} />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-sm mb-1.5">{title}</h3>
-                    {lines.map((line, j) => (
-                      <p key={j} className={`text-sm ${j === 0 ? "text-gray-700 font-medium" : "text-gray-400"}`}>
-                        {line}
-                      </p>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+                    <div
+                      className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: bg }}
+                    >
+                      <Icon className="w-5 h-5" style={{ color }} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 text-sm mb-1.5">{title}</h3>
+                      {lines.map((line, j) => (
+                        <p key={j} className="text-sm text-gray-700 font-medium">
+                          {line}
+                        </p>
+                      ))}
+                      {sub && (
+                        <p className="text-sm text-gray-400">{sub}</p>
+                      )}
+                    </div>
+                  </motion.div>
+                )
+              })}
 
               {/* Liens rapides */}
               <motion.div
@@ -183,7 +175,7 @@ export default function Contact() {
                 style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}
               >
                 <h3 className="font-bold text-gray-900 text-sm mb-4 uppercase tracking-wider">
-                  Accès rapides
+                  {s.quickLinksTitle}
                 </h3>
                 <div className="space-y-2.5">
                   {QUICK_LINKS.map(({ icon: Icon, label, href, color }) => (
@@ -222,13 +214,11 @@ export default function Contact() {
                 <div className="flex items-center gap-2 mb-3">
                   <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-xs font-bold text-green-700 uppercase tracking-wider">
-                    En ligne maintenant
+                    {t.contact.online}
                   </span>
                 </div>
                 <p className="text-sm text-green-800 leading-relaxed">
-                  Nos conseillers sont disponibles et répondent généralement
-                  en moins de{" "}
-                  <span className="font-bold">2 heures</span> en semaine.
+                  {s.availability}
                 </p>
               </motion.div>
             </div>
@@ -248,11 +238,11 @@ export default function Contact() {
                 {/* Header du formulaire */}
                 <div className="px-8 py-6 border-b border-gray-100 flex items-center justify-between">
                   <div>
-                    <h2 className="font-extrabold text-gray-900 text-xl">Envoyez-nous un message</h2>
-                    <p className="text-gray-400 text-sm mt-0.5">Tous les champs marqués sont obligatoires</p>
+                    <h2 className="font-extrabold text-gray-900 text-xl">{s.form.title}</h2>
+                    <p className="text-gray-400 text-sm mt-0.5">{s.form.subtitle}</p>
                   </div>
                   <span className="text-xs font-semibold text-green-600 bg-green-50 px-3 py-1.5 rounded-full">
-                    Réponse sous 24h
+                    {t.contact.responseTime}
                   </span>
                 </div>
 
@@ -274,11 +264,10 @@ export default function Contact() {
                           <CheckCircle2 className="w-10 h-10 text-green-500" />
                         </div>
                         <h3 className="text-2xl font-extrabold text-gray-900 mb-3">
-                          Message envoyé !
+                          {s.form.successTitle}
                         </h3>
                         <p className="text-gray-500 max-w-sm">
-                          Nous avons bien reçu votre demande et vous répondrons
-                          dans les plus brefs délais, sous 24h maximum.
+                          {s.form.successDesc}
                         </p>
                       </motion.div>
                     )}
@@ -290,11 +279,11 @@ export default function Contact() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
-                          Prénom <span className="text-red-400">*</span>
+                          {s.form.firstName} <span className="text-red-400">*</span>
                         </label>
                         <input
                           {...register("firstName")}
-                          placeholder="Jean"
+                          placeholder={s.form.firstNamePlaceholder}
                           className={inputClass}
                         />
                         {errors.firstName && (
@@ -306,11 +295,11 @@ export default function Contact() {
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
-                          Nom <span className="text-red-400">*</span>
+                          {s.form.lastName} <span className="text-red-400">*</span>
                         </label>
                         <input
                           {...register("lastName")}
-                          placeholder="Dupont"
+                          placeholder={s.form.lastNamePlaceholder}
                           className={inputClass}
                         />
                         {errors.lastName && (
@@ -326,12 +315,12 @@ export default function Contact() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
-                          Email <span className="text-red-400">*</span>
+                          {t.contact.email} <span className="text-red-400">*</span>
                         </label>
                         <input
                           {...register("email")}
                           type="email"
-                          placeholder="jean.dupont@email.com"
+                          placeholder={s.form.emailPlaceholder}
                           className={inputClass}
                         />
                         {errors.email && (
@@ -343,13 +332,13 @@ export default function Contact() {
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
-                          Téléphone
-                          <span className="text-gray-400 font-normal ml-1">(optionnel)</span>
+                          {t.contact.phone}
+                          <span className="text-gray-400 font-normal ml-1">{s.form.phoneOptional}</span>
                         </label>
                         <input
                           {...register("phone")}
                           type="tel"
-                          placeholder="06 12 34 56 78"
+                          placeholder={s.form.phonePlaceholder}
                           className={inputClass}
                         />
                       </div>
@@ -358,19 +347,16 @@ export default function Contact() {
                     {/* Sujet */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Sujet <span className="text-red-400">*</span>
+                        {t.contact.subject} <span className="text-red-400">*</span>
                       </label>
                       <select
                         {...register("subject")}
                         className={inputClass}
                       >
-                        <option value="">Sélectionnez un sujet</option>
-                        <option value="Demande d'information">Demande d'information</option>
-                        <option value="Suivi de dossier">Suivi de dossier</option>
-                        <option value="Simulation de prêt">Simulation de prêt</option>
-                        <option value="Réclamation">Réclamation</option>
-                        <option value="Partenariat">Partenariat</option>
-                        <option value="Autre">Autre</option>
+                        <option value="">{s.form.subjectPlaceholder}</option>
+                        {s.form.subjectOptions.map(opt => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
                       </select>
                       {errors.subject && (
                         <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1">
@@ -383,12 +369,12 @@ export default function Contact() {
                     {/* Message */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Message <span className="text-red-400">*</span>
+                        {s.form.messageLabel} <span className="text-red-400">*</span>
                       </label>
                       <textarea
                         {...register("message")}
                         rows={5}
-                        placeholder="Comment pouvons-nous vous aider ? Décrivez votre projet ou votre question..."
+                        placeholder={s.form.messagePlaceholder}
                         className={`${inputClass} resize-none`}
                       />
                       {errors.message && (
@@ -401,11 +387,11 @@ export default function Contact() {
 
                     {/* RGPD */}
                     <p className="text-xs text-gray-400 leading-relaxed">
-                      En soumettant ce formulaire, vous acceptez notre{" "}
+                      {s.form.rgpd1}{" "}
                       <a href="politique-confidentialite" className="text-green-600 hover:underline">
-                        politique de confidentialité
+                        {s.form.rgpdLink}
                       </a>
-                      . Vos données sont traitées conformément au RGPD.
+                      {s.form.rgpd2}
                     </p>
 
                     {/* Submit */}
@@ -425,11 +411,11 @@ export default function Contact() {
                       {isSubmitting ? (
                         <>
                           <Loader2 className="w-5 h-5 animate-spin" />
-                          Envoi en cours…
+                          {s.form.sending}
                         </>
                       ) : (
                         <>
-                          Envoyer le message
+                          {t.contact.submit}
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                         </>
                       )}

@@ -414,7 +414,63 @@ export const de = {
     "success": "Nachricht erfolgreich gesendet!",
     "successDesc": "Wir werden Ihnen innerhalb von 24 Stunden antworten.",
     "online": "Jetzt online",
-    "responseTime": "Antwort innerhalb von 24 Stunden"
+    "responseTime": "Antwort innerhalb von 24 Stunden",
+    "hero": {
+      "badge": "Wir sind für Sie da",
+      "title": "Kontaktieren Sie uns",
+      "titleHighlight": "unser Team",
+      "subtitle": "Unsere Experten stehen Ihnen an sieben Tagen in der Woche zur Verfügung, um alle Ihre Fragen zu Ihren Finanzierungsprojekten zu beantworten."
+    },
+    "info": [
+      {
+        "title": "Hauptsitz"
+      },
+      {
+        "title": "Telefon",
+        "sub": "Mo–Fr, 9–18 Uhr · Eintritt frei"
+      },
+      {
+        "title": "E-Mail",
+        "sub": "Antwort innerhalb von 24 Stunden"
+      }
+    ],
+    "quickLinksTitle": "Schnellzugriff",
+    "availability": "Unsere Berater stehen Ihnen zur Verfügung und antworten an Werktagen in der Regel innerhalb von zwei Stunden.",
+    "form": {
+      "title": "Schicken Sie uns eine Nachricht",
+      "subtitle": "Alle markierten Felder sind Pflichtfelder",
+      "firstName": "Vorname",
+      "firstNamePlaceholder": "Jean",
+      "lastName": "Name",
+      "lastNamePlaceholder": "Dupont",
+      "emailPlaceholder": "jean.dupont@email.com",
+      "phoneOptional": "(optional)",
+      "phonePlaceholder": "06 12 34 56 78",
+      "subjectPlaceholder": "Wählen Sie ein Thema aus",
+      "subjectOptions": [
+        "Anfrage nach Informationen",
+        "Bearbeitung des Antrags",
+        "Kreditsimulation",
+        "Reklamation",
+        "Partnerschaft",
+        "Sonstiges"
+      ],
+      "messageLabel": "Nachricht",
+      "messagePlaceholder": "Wie können wir Ihnen helfen? Beschreiben Sie Ihr Projekt oder Ihre Frage...",
+      "rgpd1": "Mit dem Absenden dieses Formulars erklären Sie sich mit unseren",
+      "rgpdLink": "Datenschutzerklärung",
+      "rgpd2": ". Ihre Daten werden gemäß der DSGVO verarbeitet.",
+      "sending": "Wird gesendet…",
+      "successTitle": "Nachricht gesendet!",
+      "successDesc": "Wir haben Ihre Anfrage erhalten und werden Ihnen so schnell wie möglich, spätestens jedoch innerhalb von 24 Stunden, antworten.",
+      "errors": {
+        "firstName": "Der Vorname ist erforderlich",
+        "lastName": "Der Name ist erforderlich",
+        "email": "Ungültige E-Mail-Adresse",
+        "subject": "Das Thema ist Pflicht",
+        "message": "Die Nachricht muss mindestens 10 Zeichen enthalten"
+      }
+    }
   },
   "footer": {
     "tagline": "Ihr zuverlässiger Partner für alle Ihre Finanzierungsprojekte.",

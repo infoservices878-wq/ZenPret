@@ -22,6 +22,7 @@ const SOURCE_LOCALE = 'fr';
 const TARGET_LOCALES = [
   { code: 'en', deepl: 'EN-US' }, // utilise 'EN-GB' si tu préfères l'anglais britannique
   { code: 'de', deepl: 'DE' },
+  { code: 'nl', deepl: 'NL' },
 ];
 
 const BATCH_SIZE = 50; // DeepL limite le nombre de textes par requête

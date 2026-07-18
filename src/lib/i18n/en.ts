@@ -414,7 +414,63 @@ export const en = {
     "success": "Message sent successfully!",
     "successDesc": "We'll get back to you within 24h.",
     "online": "Online now",
-    "responseTime": "Response within 24h"
+    "responseTime": "Response within 24h",
+    "hero": {
+      "badge": "We're here for you",
+      "title": "Contact",
+      "titleHighlight": "our team",
+      "subtitle": "Our experts are available 7 days a week to answer any questions you may have about your financing projects."
+    },
+    "info": [
+      {
+        "title": "Headquarters"
+      },
+      {
+        "title": "Phone",
+        "sub": "Mon–Fri, 9 a.m.–6 p.m. · Free"
+      },
+      {
+        "title": "Email",
+        "sub": "Response within 24 hours"
+      }
+    ],
+    "quickLinksTitle": "Quick Links",
+    "availability": "Our advisors are available and typically respond within 2 hours on weekdays.",
+    "form": {
+      "title": "Send us a message",
+      "subtitle": "All fields marked with an asterisk are required",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Jean",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Dupont",
+      "emailPlaceholder": "jean.dupont@email.com",
+      "phoneOptional": "(optional)",
+      "phonePlaceholder": "06 12 34 56 78",
+      "subjectPlaceholder": "Select a topic",
+      "subjectOptions": [
+        "Request for Information",
+        "Case Tracking",
+        "Loan Calculator",
+        "Complaint",
+        "Partnership",
+        "Other"
+      ],
+      "messageLabel": "Message",
+      "messagePlaceholder": "How can we help you? Please describe your project or question...",
+      "rgpd1": "By submitting this form, you agree to our",
+      "rgpdLink": "Privacy Policy",
+      "rgpd2": ". Your data is processed in accordance with the GDPR.",
+      "sending": "Sending...",
+      "successTitle": "Message sent!",
+      "successDesc": "We have received your request and will respond as soon as possible, within 24 hours at the latest.",
+      "errors": {
+        "firstName": "First name is required",
+        "lastName": "The name is required",
+        "email": "Invalid email address",
+        "subject": "The subject line is required",
+        "message": "The message must contain at least 10 characters"
+      }
+    }
   },
   "footer": {
     "tagline": "Your trusted partner for all your financing projects.",

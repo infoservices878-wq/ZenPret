@@ -52,6 +52,7 @@ export default function App() {
                 <Route path="/es"  component={Home} />
                 <Route path="/it"  component={Home} />
                 <Route path="/pt"  component={Home} />
+                <Route path="/nl"  component={Home} />
 
                 {/* ════ SIMULATEUR ════ */}
                 <Route path="/fr/simulateur"  component={Simulator} />
@@ -60,6 +61,8 @@ export default function App() {
                 <Route path="/es/simulador"   component={Simulator} />
                 <Route path="/it/simulatore"  component={Simulator} />
                 <Route path="/pt/simulador"   component={Simulator} />
+                <Route path="/nl/simulator"   component={Simulator} />
+                {/* ════ PAGES D'INFORMATION ════ */}
 
                 {/* ════ À PROPOS ════ */}
                 <Route path="/fr/a-propos"        component={About} />
@@ -68,6 +71,8 @@ export default function App() {
                 <Route path="/es/sobre-nosotros"  component={About} />
                 <Route path="/it/chi-siamo"       component={About} />
                 <Route path="/pt/sobre-nos"       component={About} />
+                <Route path="/nl/over-ons"       component={About} />
+
 
                 {/* ════ CONTACT ════ */}
                 <Route path="/fr/contact"  component={Contact} />
@@ -76,6 +81,7 @@ export default function App() {
                 <Route path="/es/contacto" component={Contact} />
                 <Route path="/it/contatti" component={Contact} />
                 <Route path="/pt/contacto" component={Contact} />
+                <Route path="/nl/contact" component={Contact} />
 
                 {/* ════ COMMENT ÇA MARCHE ════ */}
                 <Route path="/fr/comment-ca-marche"  component={HowItWorks} />
@@ -84,6 +90,7 @@ export default function App() {
                 <Route path="/es/como-funciona"      component={HowItWorks} />
                 <Route path="/it/come-funziona"      component={HowItWorks} />
                 <Route path="/pt/como-funciona"      component={HowItWorks} />
+                <Route path="/nl/hoe-het-werkt"      component={HowItWorks} />
 
                 {/* ════ PAGES PRÊTS ════ */}
                 <Route path="/fr/loans/:type"       component={Loans} />
@@ -92,6 +99,7 @@ export default function App() {
                 <Route path="/es/prestamos/:type"   component={Loans} />
                 <Route path="/it/prestiti/:type"    component={Loans} />
                 <Route path="/pt/emprestimos/:type" component={Loans} />
+                <Route path="/nl/leningen/:type"    component={Loans} />
 
                 {/* ════ MENTIONS LÉGALES ════ */}
                 <Route path="/fr/mentions-legales" component={MentionsLegales} />
@@ -100,6 +108,7 @@ export default function App() {
                 <Route path="/es/aviso-legal"      component={MentionsLegales} />
                 <Route path="/it/note-legali"      component={MentionsLegales} />
                 <Route path="/pt/aviso-legal"      component={MentionsLegales} />
+                <Route path="/nl/wettelijke-vermeldingen" component={MentionsLegales} />
 
                 {/* ════ POLITIQUE CONFIDENTIALITÉ ════ */}
                 <Route path="/fr/politique-confidentialite" component={PolitiqueConfidentialite} />
@@ -108,6 +117,7 @@ export default function App() {
                 <Route path="/es/politica-privacidad"       component={PolitiqueConfidentialite} />
                 <Route path="/it/privacy"                   component={PolitiqueConfidentialite} />
                 <Route path="/pt/politica-privacidade"      component={PolitiqueConfidentialite} />
+                <Route path="/nl/privacybeleid"             component={PolitiqueConfidentialite} />
 
                 {/* ════ COOKIES ════ */}
                 <Route path="/fr/cookies" component={CookiesPage} />
@@ -116,6 +126,7 @@ export default function App() {
                 <Route path="/es/cookies" component={CookiesPage} />
                 <Route path="/it/cookies" component={CookiesPage} />
                 <Route path="/pt/cookies" component={CookiesPage} />
+                <Route path="/nl/cookies" component={CookiesPage} />
 
                 {/* ════ 404 ════ */}
                 <Route component={NotFound} />
