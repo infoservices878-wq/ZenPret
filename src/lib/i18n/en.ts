@@ -379,7 +379,111 @@ export const en = {
     "cta": "Apply for my loan",
     "legal": "Non-binding simulation",
     "nofees": "Low application fees",
-    "instant": "Instant response"
+    "instant": "Instant response",
+    "hero": {
+      "badge": "100% secure · No obligation",
+      "title": "Request your",
+      "titleHighlight": "ready",
+      "subtitle": "Immediate preliminary response · Confidential application · Low application fee"
+    },
+    "card": {
+      "title": "Simulator",
+      "amountLabel": "Amount",
+      "durationLabel": "Duration",
+      "totalInterest": "Total Interest",
+      "debtRatio": "Debt-to-Income Ratio",
+      "rateNote": "Estimated fixed APR: 3%"
+    },
+    "reassurance": [
+      "Your data is encrypted (256-bit SSL)",
+      "A preliminary response in less than 2 minutes",
+      "Low application fee · No obligation"
+    ],
+    "result": {
+      "approvedBadge": "Pre-approved Application",
+      "approvedTitle": "Congratulations! 🎉",
+      "approvedText": "Your profile meets our criteria. An advisor will contact you within 24 hours to finalize your application.",
+      "recapTitle": "Summary",
+      "recapMonthly": "Monthly payment",
+      "pendingBadge": "Application currently under review",
+      "pendingTitle": "Application Received",
+      "pendingText": "Your application requires further review. You will receive a response by email within 48 hours.",
+      "retry": "Run another simulation"
+    },
+    "debtRatioFull": "Estimated debt-to-income ratio",
+    "debtRatioThreshold": "Recommended threshold: 33%",
+    "debtRatioWarning": "⚠️ Your rate exceeds the recommended 33%. Your application will be reviewed on a case-by-case basis.",
+    "debtRatioOk": "✓ Your debt-to-income ratio is within the recommended range (< 33%).",
+    "steps": [
+      "Your Project",
+      "Identity",
+      "Location",
+      "Address"
+    ],
+    "form": {
+      "step1": {
+        "title": "Your Project",
+        "desc": "Tell us what you'd like to finance.",
+        "loanTypeLabel": "Loan Type",
+        "loanTypeOptions": [
+          "Personal Loan",
+          "Business Loan",
+          "Car Loan",
+          "Student Loan",
+          "Consumption",
+          "Debt Consolidation"
+        ],
+        "amountLabel": "Amount (€)",
+        "durationLabel": "Duration (months)"
+      },
+      "step2": {
+        "title": "Personal Information",
+        "desc": "Your information is 100% confidential and secure."
+      },
+      "step3": {
+        "title": "Employment Status",
+        "desc": "This information allows us to evaluate your application.",
+        "statusLabel": "Location",
+        "statusPlaceholder": "Select",
+        "statusOptions": [
+          "Employee",
+          "Self-Employed / Freelancer",
+          "Civil Servant",
+          "Student",
+          "Retiree",
+          "Unemployed"
+        ],
+        "incomeLabel": "Net Monthly Income (€)",
+        "expensesLabel": "Monthly expenses (€)"
+      },
+      "step4": {
+        "title": "Your address",
+        "desc": "The final step before your application is reviewed.",
+        "addressLabel": "Address",
+        "cityLabel": "City",
+        "zipLabel": "ZIP Code",
+        "countryLabel": "Country",
+        "rgpd1": "By submitting this form, you agree to our",
+        "rgpd2": "and the processing of your data in accordance with the GDPR."
+      },
+      "continue": "Continue",
+      "analyzing": "Analysis in progress…",
+      "submit": "Submit My Request",
+      "errors": {
+        "email": "Invalid email address",
+        "phone": "Invalid number",
+        "loanType": "Type of credit required",
+        "amountMin": "Minimum amount: 500 €",
+        "durationMin": "Minimum duration: 6 months",
+        "income": "Invalid income",
+        "employmentStatus": "Required Employment Status",
+        "expenses": "Invalid charges",
+        "address": "Address required",
+        "city": "Required City",
+        "zipCode": "Invalid ZIP code",
+        "country": "Required country"
+      }
+    }
   },
   "howItWorks": {
     "badge": "100% transparent process",
@@ -390,7 +494,146 @@ export const en = {
     "guarantee": "Our commitments",
     "whyUs": "Why choose Fab Finance?",
     "cta": "Start my simulation",
-    "ctaSub": "Free · No commitment · Response in 2 minutes"
+    "ctaSub": "Free · No commitment · Response in 2 minutes",
+    "hero": {
+      "titleLine1": "How to get",
+      "titleLine2": "Your loan?",
+      "subtitle": "From the simulation to the disbursement of funds, learn about each step of our process. It’s simple, fast, and fully supported by our advisors.",
+      "stats": [
+        {
+          "value": "2 min",
+          "label": "to simulate"
+        },
+        {
+          "value": "24 hours",
+          "label": "response to the case file"
+        },
+        {
+          "value": "14 days",
+          "label": "withdrawal"
+        },
+        {
+          "value": "Low",
+          "label": "application fee"
+        }
+      ]
+    },
+    "stepWord": "Step",
+    "stepsList": [
+      {
+        "title": "Get a Loan Estimate",
+        "subtitle": "Less than 2 minutes",
+        "desc": "Enter the desired amount, the repayment term, and your project. Our calculator instantly calculates your estimated monthly payment and the total cost of your loan.",
+        "details": [
+          "No commitment at this stage",
+          "Instant results, 100% free",
+          "Customize the settings as you like"
+        ]
+      },
+      {
+        "title": "Complete your application",
+        "subtitle": "5 to 10 minutes",
+        "desc": "Please provide details about your personal and professional situation in our secure form. Our advisors need this information to best review your application.",
+        "details": [
+          "100% Online and Secure Form",
+          "256-bit SSL Encryption",
+          "Automatic backup at every step"
+        ]
+      },
+      {
+        "title": "Review of Your Application",
+        "subtitle": "Response within 24 hours",
+        "desc": "A dedicated Fab Finance advisor will review your application and contact you by phone or WhatsApp to tailor your offer and answer any questions you may have.",
+        "details": [
+          "Dedicated Personal Advisor",
+          "Contact us by phone or WhatsApp",
+          "Human analysis, not automated"
+        ]
+      },
+      {
+        "title": "Get your quote",
+        "subtitle": "Within 48 hours",
+        "desc": "You'll receive your personalized loan offer by email, including all the detailed terms: APR, monthly payments, term, and total cost. Please take the time to read it.",
+        "details": [
+          "Detailed and Transparent Offer",
+          "APR and Clear Terms",
+          "A pressure-free cooling-off period"
+        ]
+      },
+      {
+        "title": "Sign your contract",
+        "subtitle": "Electronic Signature",
+        "desc": "If you accept the offer, you have a 14-day statutory withdrawal period. Once this period has expired, please confirm your acceptance with a secure electronic signature.",
+        "details": [
+          "14-day statutory right of withdrawal",
+          "eIDAS-Certified Electronic Signature",
+          "No travel, 100% online"
+        ]
+      },
+      {
+        "title": "Receive Your Funds",
+        "subtitle": "Transfer within 24–48 hours",
+        "desc": "Once your contract is signed and the cancellation period has expired, the funds will be deposited directly into your bank account. Your project can get started!",
+        "details": [
+          "Secure Bank Transfer",
+          "Funds available within 24 to 48 hours",
+          "Notifications via text message and email"
+        ]
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Speed",
+        "desc": "Preliminary decision in 2 minutes; funds disbursed within 48 hours after signing."
+      },
+      {
+        "title": "Security",
+        "desc": "Your data is encrypted using 256-bit SSL and is never sold to third parties."
+      },
+      {
+        "title": "Support",
+        "desc": "A dedicated advisor will guide you through the process, from the initial simulation to the disbursement of funds."
+      },
+      {
+        "title": "Transparency",
+        "desc": "No hidden fees, low application fee. The APR is disclosed from the start."
+      }
+    ],
+    "reviews": {
+      "ratingValue": "4.8 / 5",
+      "ratingSub": "Based on over 12,000 verified customer reviews",
+      "items": [
+        "Everything went exactly as described. My advisor was available at every step of the way.",
+        "From the application to the funds being transferred—just 4 days. Unbelievable for a loan of this size.",
+        "Finally, a credit agency that clearly explains each step without using jargon."
+      ]
+    },
+    "faqTitle": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "q": "How long does the entire process take?",
+        "a": "From the simulation to the disbursement of funds, the process generally takes between 5 and 10 business days, taking into account the 14-day legal cooling-off period. In case of an emergency, contact us directly via WhatsApp."
+      },
+      {
+        "q": "What documents do I need to prepare?",
+        "a": "Identification, your last 3 pay stubs (or proof of income), a recent proof of address, and your bank account information. Everything can be submitted online with just a few clicks."
+      },
+      {
+        "q": "Does my request entail any obligations?",
+        "a": "No. The simulation and the request for application materials are completely free and non-binding. You are not bound by any commitment until you sign your contract, and you still have a 14-day cooling-off period."
+      },
+      {
+        "q": "Can I track the status of my application?",
+        "a": "Yes. Your Fab Finance advisor will keep you informed at every step by phone, email, or WhatsApp. You can contact them directly at any time."
+      }
+    ],
+    "finalCta": {
+      "badge": "Ready to get started?",
+      "title": "Get a loan estimate now",
+      "subtitle": "Free, no obligation, response in 2 minutes. Your advisor will contact you within 24 hours.",
+      "talkToAdvisor": "Talk to an advisor",
+      "responseTime": "Answer in 2 minutes"
+    }
   },
   "about": {
     "badge": "Our story",
@@ -399,7 +642,86 @@ export const en = {
     "mission": "Our mission",
     "values": "Our values",
     "team": "Our team",
-    "cta": "Simulate a loan"
+    "cta": "Simulate a loan",
+    "hero": {
+      "badge": "Founded in 2016 · Paris",
+      "title": "Reinventing Credit",
+      "titleHighlight": "for everyone",
+      "subtitle": "Fab Finance is committed to making financing accessible, transparent, and fair. Say goodbye to the complexity of traditional banking."
+    },
+    "stats": [
+      {
+        "label": "Satisfied Customers",
+        "sub": "since 2016"
+      },
+      {
+        "label": "Funded Projects",
+        "sub": "on a cumulative basis"
+      },
+      {
+        "label": "TrustPilot Rating",
+        "sub": "+12,000 verified reviews"
+      },
+      {
+        "label": "Average payment processing time",
+        "sub": "upon agreement"
+      }
+    ],
+    "orias": {
+      "badge": "ORIAS-Certified",
+      "sub": "Credit Broker"
+    },
+    "missionSection": {
+      "eyebrow": "Our Mission",
+      "title": "Funding",
+      "titleHighlight": "otherwise",
+      "text1": "We believe that every project deserves to be funded easily. That's why we've built a platform that combines the power of technology with the warmth of personal support.",
+      "text2": "Our commitment: no hidden fees, no banking jargon, and a preliminary response in less than 2 minutes—7 days a week.",
+      "features": [
+        "Free, no-obligation simulation",
+        "Advisors available 7 days a week",
+        "Funds Released Within 48 Hours",
+        "Low application fee"
+      ],
+      "cta": "Start my simulation"
+    },
+    "valuesSection": {
+      "eyebrow": "What Drives Us",
+      "title": "Our Values",
+      "items": [
+        {
+          "title": "People First",
+          "text": "Technology helps us work quickly, but it’s our advisors who make the difference by listening to our clients and being available to them."
+        },
+        {
+          "title": "Complete transparency",
+          "text": "No jargon, no hidden fees. You know exactly what you're paying from day one, with no unpleasant surprises."
+        },
+        {
+          "title": "Service Excellence",
+          "text": "We strive for perfection in every interaction to provide you with the best financing experience possible."
+        },
+        {
+          "title": "Positive impact",
+          "text": "We prioritize funding for energy transition projects and sustainable home improvement projects."
+        }
+      ]
+    },
+    "timelineSection": {
+      "eyebrow": "Our History",
+      "title": "8 Years of Innovation",
+      "events": [
+        "Fab Finance was founded in Paris with a clear mission: to make credit more accessible.",
+        "Launch of the online simulator — get a preliminary response in less than 2 minutes.",
+        "Reached the 100,000-customer milestone and obtained ORIAS accreditation.",
+        "European expansion and the launch of business and student loans.",
+        "1 million satisfied customers and 5 billion euros in funded projects."
+      ]
+    },
+    "finalCta": {
+      "title": "Join the adventure",
+      "subtitle": "More than a million customers already trust us. Now it’s your turn to bring your projects to life with Fab Finance."
+    }
   },
   "contact": {
     "badge": "Contact us",

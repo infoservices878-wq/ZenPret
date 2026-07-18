@@ -379,7 +379,111 @@ export const de = {
     "cta": "Meinen Kredit beantragen",
     "legal": "Unverbindliche Simulation",
     "nofees": "Geringe Bearbeitungsgebühr",
-    "instant": "Sofortige Antwort"
+    "instant": "Sofortige Antwort",
+    "hero": {
+      "badge": "100 % sicher · Unverbindlich",
+      "title": "Fordern Sie Ihr",
+      "titleHighlight": "bereit",
+      "subtitle": "Sofortige grundsätzliche Antwort · Vertrauliche Bearbeitung · Geringe Bearbeitungsgebühr"
+    },
+    "card": {
+      "title": "Simulator",
+      "amountLabel": "Betrag",
+      "durationLabel": "Dauer",
+      "totalInterest": "Zinsen insgesamt",
+      "debtRatio": "Verschuldungsquote",
+      "rateNote": "Richtwert für den festen effektiven Jahreszins: 3 %"
+    },
+    "reassurance": [
+      "Ihre Daten werden verschlüsselt (256-Bit-SSL)",
+      "Grundsätzliche Antwort in weniger als 2 Minuten",
+      "Geringe Bearbeitungsgebühr · Unverbindlich"
+    ],
+    "result": {
+      "approvedBadge": "Vorab genehmigter Antrag",
+      "approvedTitle": "Herzlichen Glückwunsch! 🎉",
+      "approvedText": "Ihr Profil entspricht unseren Kriterien. Ein Berater wird sich innerhalb von 24 Stunden mit Ihnen in Verbindung setzen, um Ihre Unterlagen zu vervollständigen.",
+      "recapTitle": "Zusammenfassung",
+      "recapMonthly": "Monatliche Rate",
+      "pendingBadge": "Der Fall wird derzeit geprüft",
+      "pendingTitle": "Unterlagen eingegangen",
+      "pendingText": "Ihr Antrag muss eingehend geprüft werden. Sie erhalten innerhalb von 48 Stunden eine Antwort per E-Mail.",
+      "retry": "Eine weitere Simulation durchführen"
+    },
+    "debtRatioFull": "Geschätzte Verschuldungsquote",
+    "debtRatioThreshold": "Empfohlener Schwellenwert: 33 %",
+    "debtRatioWarning": "⚠️ Ihr Satz liegt über den empfohlenen 33 %. Ihr Antrag wird im Einzelfall geprüft.",
+    "debtRatioOk": "✓ Ihre Verschuldungsquote liegt im empfohlenen Rahmen (< 33 %).",
+    "steps": [
+      "Ihr Projekt",
+      "Identität",
+      "Lage",
+      "Adresse"
+    ],
+    "form": {
+      "step1": {
+        "title": "Ihr Projekt",
+        "desc": "Sagen Sie uns, was Sie finanzieren möchten.",
+        "loanTypeLabel": "Kreditart",
+        "loanTypeOptions": [
+          "Privatkredit",
+          "Geschäftskredit",
+          "Autokredit",
+          "Studienkredit",
+          "Verbrauch",
+          "Kreditumschuldung"
+        ],
+        "amountLabel": "Betrag (€)",
+        "durationLabel": "Dauer (Monate)"
+      },
+      "step2": {
+        "title": "Persönliche Angaben",
+        "desc": "Ihre Daten werden zu 100 % vertraulich behandelt und sind sicher."
+      },
+      "step3": {
+        "title": "Berufliche Situation",
+        "desc": "Anhand dieser Informationen können wir Ihren Antrag prüfen.",
+        "statusLabel": "Lage",
+        "statusPlaceholder": "Auswählen",
+        "statusOptions": [
+          "Arbeitnehmer/in",
+          "Selbstständig / Freiberuflich",
+          "Beamter",
+          "Student(in)",
+          "Rentner/in",
+          "Arbeitslos"
+        ],
+        "incomeLabel": "Monatliches Nettoeinkommen (€)",
+        "expensesLabel": "Monatliche Kosten (€)"
+      },
+      "step4": {
+        "title": "Ihre Adresse",
+        "desc": "Letzter Schritt vor der Prüfung Ihrer Unterlagen.",
+        "addressLabel": "Adresse",
+        "cityLabel": "Stadt",
+        "zipLabel": "Postleitzahl",
+        "countryLabel": "Land",
+        "rgpd1": "Mit dem Absenden dieses Formulars erklären Sie sich mit unseren",
+        "rgpd2": "sowie die Verarbeitung Ihrer Daten gemäß der DSGVO."
+      },
+      "continue": "Weiter",
+      "analyzing": "Analyse läuft…",
+      "submit": "Meinen Antrag einreichen",
+      "errors": {
+        "email": "Ungültige E-Mail-Adresse",
+        "phone": "Ungültige Nummer",
+        "loanType": "Gewünschte Kreditart",
+        "amountMin": "Mindestbetrag 500 €",
+        "durationMin": "Mindestdauer: 6 Monate",
+        "income": "Einkommen bei Erwerbsunfähigkeit",
+        "employmentStatus": "Erforderliche berufliche Situation",
+        "expenses": "Ungültige Kosten",
+        "address": "Adresse erforderlich",
+        "city": "Gewünschte Stadt",
+        "zipCode": "Ungültige Postleitzahl",
+        "country": "Erforderliches Land"
+      }
+    }
   },
   "howItWorks": {
     "badge": "100 % transparenter Prozess",
@@ -390,7 +494,146 @@ export const de = {
     "guarantee": "Unsere Verpflichtungen",
     "whyUs": "Warum sollten Sie sich für Fab Finance entscheiden?",
     "cta": "Meine Simulation starten",
-    "ctaSub": "Kostenlos · Unverbindlich · Antwort innerhalb von 2 Minuten"
+    "ctaSub": "Kostenlos · Unverbindlich · Antwort innerhalb von 2 Minuten",
+    "hero": {
+      "titleLine1": "So erhalten Sie",
+      "titleLine2": "Ihr Darlehen?",
+      "subtitle": "Von der Simulation bis zur Auszahlung der Mittel – entdecken Sie jeden Schritt unseres Prozesses. Einfach, schnell und mit umfassender Betreuung durch unsere Berater.",
+      "stats": [
+        {
+          "value": "2 Min.",
+          "label": "um zu simulieren"
+        },
+        {
+          "value": "24 Stunden",
+          "label": "Antwort zum Dossier"
+        },
+        {
+          "value": "14 Tage",
+          "label": "Widerruf"
+        },
+        {
+          "value": "Gering",
+          "label": "Bearbeitungsgebühr"
+        }
+      ]
+    },
+    "stepWord": "Etappe",
+    "stepsList": [
+      {
+        "title": "Simulieren Sie Ihren Kredit",
+        "subtitle": "Weniger als 2 Minuten",
+        "desc": "Geben Sie den gewünschten Betrag, die Laufzeit und Ihr Vorhaben an. Unser Rechner ermittelt sofort Ihre voraussichtliche monatliche Rate und die Gesamtkosten Ihres Kredits.",
+        "details": [
+          "Keine Verpflichtung in dieser Phase",
+          "Sofortiges Ergebnis, 100 % kostenlos",
+          "Passen Sie die Einstellungen nach Belieben an"
+        ]
+      },
+      {
+        "title": "Vervollständigen Sie Ihren Antrag",
+        "subtitle": "5 bis 10 Minuten",
+        "desc": "Geben Sie Ihre persönliche und berufliche Situation in unserem sicheren Formular an. Unsere Berater benötigen diese Informationen, um Ihren Fall bestmöglich zu prüfen.",
+        "details": [
+          "100 % online und sicher ausfüllbares Formular",
+          "256-Bit-SSL-Verschlüsselung",
+          "Automatische Speicherung bei jedem Schritt"
+        ]
+      },
+      {
+        "title": "Prüfung Ihrer Unterlagen",
+        "subtitle": "Antwort innerhalb von 24 Stunden",
+        "desc": "Ein persönlicher Berater von Fab Finance prüft Ihre Unterlagen und setzt sich telefonisch oder über WhatsApp mit Ihnen in Verbindung, um Ihr Angebot individuell anzupassen und alle Ihre Fragen zu beantworten.",
+        "details": [
+          "Persönlicher Ansprechpartner",
+          "Kontakt per Telefon oder WhatsApp",
+          "Menschliche Auswertung, keine automatisierte Auswertung"
+        ]
+      },
+      {
+        "title": "Fordern Sie Ihr Angebot an",
+        "subtitle": "Innerhalb von 48 Stunden",
+        "desc": "Sie erhalten Ihr individuelles Kreditangebot per E-Mail mit allen detaillierten Konditionen: effektiver Jahreszins, monatliche Raten, Laufzeit und Gesamtkosten. Nehmen Sie sich die Zeit, es durchzulesen.",
+        "details": [
+          "Detailliertes und transparentes Angebot",
+          "Effektiver Jahreszins und klare Konditionen",
+          "Bedenkzeit ohne Druck"
+        ]
+      },
+      {
+        "title": "Unterzeichnen Sie Ihren Vertrag",
+        "subtitle": "Elektronische Signatur",
+        "desc": "Wenn Ihnen das Angebot zusagt, haben Sie eine gesetzliche Widerrufsfrist von 14 Tagen. Nach Ablauf dieser Frist bestätigen Sie Ihre Zustimmung bitte durch eine sichere elektronische Unterschrift.",
+        "details": [
+          "Gesetzliche Widerrufsfrist: 14 Tage",
+          "Zertifizierte elektronische Signatur gemäß eIDAS",
+          "Keine Anfahrt, 100 % online"
+        ]
+      },
+      {
+        "title": "Erhalten Sie Ihr Geld",
+        "subtitle": "Überweisung innerhalb von 24–48 Stunden",
+        "desc": "Sobald Ihr Vertrag unterzeichnet ist und die Widerrufsfrist abgelaufen ist, wird der Betrag direkt auf Ihr Bankkonto überwiesen. Ihr Projekt kann losgehen!",
+        "details": [
+          "Sichere Banküberweisung",
+          "Guthaben innerhalb von 24 bis 48 Stunden verfügbar",
+          "Benachrichtigung per SMS und E-Mail"
+        ]
+      }
+    ],
+    "guarantees": [
+      {
+        "title": "Schnelligkeit",
+        "desc": "Grundsätzliche Antwort innerhalb von 2 Minuten, Auszahlung innerhalb von 48 Stunden nach Unterzeichnung."
+      },
+      {
+        "title": "Sicherheit",
+        "desc": "Ihre Daten werden mit einer 256-Bit-SSL-Verschlüsselung geschützt und niemals an Dritte weiterverkauft."
+      },
+      {
+        "title": "Begleitung",
+        "desc": "Ein persönlicher Berater begleitet Sie von der Simulation bis zur Auszahlung der Mittel."
+      },
+      {
+        "title": "Transparenz",
+        "desc": "Keine versteckten Kosten, geringe Bearbeitungsgebühr. Der effektive Jahreszins wird von Anfang an angegeben."
+      }
+    ],
+    "reviews": {
+      "ratingValue": "4,8 / 5",
+      "ratingSub": "Basierend auf über 12.000 verifizierten Kundenbewertungen",
+      "items": [
+        "Alles verlief genau wie beschrieben. Mein Berater war in jeder Phase erreichbar.",
+        "Vom Ausfüllen des Formulars bis zur Überweisung – nur vier Tage. Unglaublich für einen Kredit dieser Größenordnung.",
+        "Endlich ein Kreditinstitut, das jeden Schritt klar und ohne Fachjargon erklärt."
+      ]
+    },
+    "faqTitle": "Häufig gestellte Fragen",
+    "faqs": [
+      {
+        "q": "Wie lange dauert der gesamte Vorgang?",
+        "a": "Von der Simulation bis zur Auszahlung dauert der Vorgang in der Regel zwischen 5 und 10 Werktagen, wobei die gesetzliche Widerrufsfrist von 14 Tagen berücksichtigt wird. In dringenden Fällen kontaktieren Sie uns bitte direkt über WhatsApp."
+      },
+      {
+        "q": "Welche Unterlagen muss ich vorbereiten?",
+        "a": "Ausweis, die letzten drei Gehaltsabrechnungen (oder Einkommensnachweise), ein aktueller Wohnsitznachweis und die Bankverbindung. Alles lässt sich online mit wenigen Klicks übermitteln."
+      },
+      {
+        "q": "Ist meine Anfrage mit irgendwelchen Verpflichtungen verbunden?",
+        "a": "Nein. Die Simulation und die Anforderung der Unterlagen sind völlig kostenlos und unverbindlich. Sie gehen erst nach Unterzeichnung Ihres Vertrags eine Verpflichtung ein, und Sie haben noch eine Widerrufsfrist von 14 Tagen."
+      },
+      {
+        "q": "Kann ich den Bearbeitungsstand meines Antrags verfolgen?",
+        "a": "Ja. Ihr Fab Finance-Berater hält Sie in jeder Phase per Telefon, E-Mail oder WhatsApp auf dem Laufenden. Sie können ihn jederzeit direkt kontaktieren."
+      }
+    ],
+    "finalCta": {
+      "badge": "Bist du bereit, loszulegen?",
+      "title": "Simulieren Sie jetzt Ihren Kredit",
+      "subtitle": "Kostenlos, unverbindlich, Antwort innerhalb von 2 Minuten. Ihr Berater meldet sich innerhalb von 24 Stunden bei Ihnen.",
+      "talkToAdvisor": "Mit einem Berater sprechen",
+      "responseTime": "Antwort in 2 Minuten"
+    }
   },
   "about": {
     "badge": "Unsere Geschichte",
@@ -399,7 +642,86 @@ export const de = {
     "mission": "Unsere Mission",
     "values": "Unsere Werte",
     "team": "Unser Team",
-    "cta": "Kredit berechnen"
+    "cta": "Kredit berechnen",
+    "hero": {
+      "badge": "Gegründet 2016 · Paris",
+      "title": "Kredite neu erfinden",
+      "titleHighlight": "für alle",
+      "subtitle": "Fab Finance hat es sich zur Aufgabe gemacht, Finanzierungen zugänglich, transparent und fair zu gestalten. Schluss mit der Komplexität des traditionellen Bankwesens."
+    },
+    "stats": [
+      {
+        "label": "Zufriedene Kunden",
+        "sub": "seit 2016"
+      },
+      {
+        "label": "Finanzierte Projekte",
+        "sub": "kumuliert nach Volumen"
+      },
+      {
+        "label": "TrustPilot-Bewertung",
+        "sub": "+12.000 verifizierte Bewertungen"
+      },
+      {
+        "label": "Durchschnittliche Auszahlungsdauer",
+        "sub": "nach Absprache"
+      }
+    ],
+    "orias": {
+      "badge": "ORIAS-zertifiziert",
+      "sub": "Kreditvermittler"
+    },
+    "missionSection": {
+      "eyebrow": "Unsere Mission",
+      "title": "Die Finanzierung",
+      "titleHighlight": "anders",
+      "text1": "Wir sind davon überzeugt, dass jedes Projekt eine unkomplizierte Finanzierung verdient. Deshalb haben wir eine Plattform entwickelt, die die Leistungsfähigkeit der Technologie mit der Herzlichkeit menschlicher Betreuung verbindet.",
+      "text2": "Unser Versprechen: keine versteckten Gebühren, kein Bankjargon und eine vorläufige Antwort in weniger als 2 Minuten – 7 Tage die Woche.",
+      "features": [
+        "Kostenlose und unverbindliche Simulation",
+        "Berater stehen Ihnen 7 Tage die Woche zur Verfügung",
+        "Freigabe der Mittel innerhalb von 48 Stunden",
+        "Geringe Bearbeitungsgebühr"
+      ],
+      "cta": "Meine Simulation starten"
+    },
+    "valuesSection": {
+      "eyebrow": "Was uns antreibt",
+      "title": "Unsere Werte",
+      "items": [
+        {
+          "title": "Der Mensch im Mittelpunkt",
+          "text": "Die Technologie hilft uns, schnell zu sein, aber es sind unsere Berater, die durch ihre Aufmerksamkeit und ihre Verfügbarkeit den Unterschied ausmachen."
+        },
+        {
+          "title": "Vollständige Transparenz",
+          "text": "Kein Fachjargon, keine versteckten Kosten. Sie wissen vom ersten Tag an genau, was Sie bezahlen – ohne böse Überraschungen."
+        },
+        {
+          "title": "Hervorragender Service",
+          "text": "Wir streben bei jeder Interaktion nach Perfektion, um Ihnen das bestmögliche Finanzierungserlebnis zu bieten."
+        },
+        {
+          "title": "Positive Auswirkungen",
+          "text": "Wir finanzieren vorrangig Projekte zur Energiewende und zur nachhaltigen Wohnraumverbesserung."
+        }
+      ]
+    },
+    "timelineSection": {
+      "eyebrow": "Unsere Geschichte",
+      "title": "8 Jahre Innovation",
+      "events": [
+        "Gründung von Fab Finance in Paris mit einem klaren Ziel: den Zugang zu Krediten für alle zu ermöglichen.",
+        "Start des Online-Simulators – grundsätzliche Antwort in weniger als 2 Minuten.",
+        "Die 100.000er-Marke bei den Kunden wurde überschritten und die ORIAS-Zulassung erhalten.",
+        "Expansion in Europa und Einführung von Krediten für Gewerbetreibende und Studierende.",
+        "1 Million zufriedene Kunden und Projekte im Wert von 5 Milliarden Euro."
+      ]
+    },
+    "finalCta": {
+      "title": "Machen Sie mit bei diesem Abenteuer",
+      "subtitle": "Mehr als eine Million Kunden vertrauen uns bereits. Jetzt sind Sie an der Reihe, Ihre Projekte mit Fab Finance zu verwirklichen."
+    }
   },
   "contact": {
     "badge": "Kontaktieren Sie uns",

@@ -8,32 +8,29 @@ import {
 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { calculateLoan } from "@/utils/loanCalculator"
+import { useI18n } from "@/lib/i18n-context"
 
-const loanSchema = z.object({
-  firstName:        z.string().min(2,  "Le prénom est requis"),
-  lastName:         z.string().min(2,  "Le nom est requis"),
-  email:            z.string().email("Email invalide"),
-  phone:            z.string().min(10, "Numéro invalide"),
-  loanType:         z.string().min(1,  "Type de crédit requis"),
-  amount:           z.number().min(500,"Montant minimum 500 €"),
-  duration:         z.number().min(6,  "Durée minimum 6 mois"),
-  income:           z.number().min(0,  "Revenu invalide"),
-  employmentStatus: z.string().min(1,  "Situation professionnelle requise"),
-  monthlyExpenses:  z.number().min(0,  "Charges invalides"),
-  address:          z.string().min(5,  "Adresse requise"),
-  city:             z.string().min(2,  "Ville requise"),
-  zipCode:          z.string().min(5,  "Code postal invalide"),
-  country:          z.string().min(2,  "Pays requis"),
-})
+type LoanForm = {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  loanType: string
+  amount: number
+  duration: number
+  income: number
+  employmentStatus: string
+  monthlyExpenses: number
+  address: string
+  city: string
+  zipCode: string
+  country: string
+}
 
-type LoanForm = z.infer<typeof loanSchema>
+const STEP_ICONS = [Calculator, User, Briefcase, MapPin]
 
-const STEPS = [
-  { id: 1, label: "Votre projet",    icon: Calculator },
-  { id: 2, label: "Identité",        icon: User       },
-  { id: 3, label: "Situation",       icon: Briefcase  },
-  { id: 4, label: "Adresse",         icon: MapPin     },
-]
+const LOAN_TYPE_VALUES  = ["personnel", "pro", "auto", "etudiant", "conso", "rachat"]
+const STATUS_VALUES     = ["employee", "self-employed", "civil-servant", "student", "retired", "unemployed"]
 
 const inputClass =
   "w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 text-sm transition-all duration-200 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 focus:bg-white"
@@ -42,6 +39,28 @@ const selectClass =
   "w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 text-sm transition-all duration-200 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20 focus:bg-white appearance-none cursor-pointer"
 
 export default function Simulator() {
+  const { t } = useI18n();
+  const s = t.simulator
+
+  const STEPS = s.steps.map((label, i) => ({ id: i + 1, label, icon: STEP_ICONS[i] }))
+
+  const loanSchema = z.object({
+    firstName:        z.string().min(2,  t.contact.form.errors.firstName),
+    lastName:         z.string().min(2,  t.contact.form.errors.lastName),
+    email:            z.string().email(s.form.errors.email),
+    phone:            z.string().min(10, s.form.errors.phone),
+    loanType:         z.string().min(1,  s.form.errors.loanType),
+    amount:           z.number().min(500, s.form.errors.amountMin),
+    duration:         z.number().min(6,   s.form.errors.durationMin),
+    income:           z.number().min(0,   s.form.errors.income),
+    employmentStatus: z.string().min(1,   s.form.errors.employmentStatus),
+    monthlyExpenses:  z.number().min(0,   s.form.errors.expenses),
+    address:          z.string().min(5,   s.form.errors.address),
+    city:             z.string().min(2,   s.form.errors.city),
+    zipCode:          z.string().min(5,   s.form.errors.zipCode),
+    country:          z.string().min(2,   s.form.errors.country),
+  })
+
   const [step, setStep]         = useState(1)
   const [isSubmitting, setIsS]  = useState(false)
   const [decision, setDecision] = useState<"approved" | "pending" | null>(null)
@@ -112,7 +131,7 @@ export default function Simulator() {
           >
             <span className="flex h-2 w-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-green-400 text-sm font-bold uppercase tracking-widest">
-              100% sécurisé · Sans engagement
+              {s.hero.badge}
             </span>
           </motion.div>
           <motion.h1
@@ -121,12 +140,12 @@ export default function Simulator() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-5xl font-extrabold text-white mb-3"
           >
-            Demandez votre{" "}
+            {s.hero.title}{" "}
             <span style={{
               background: "linear-gradient(135deg, #4ade80 0%, #16a34a 100%)",
               WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             }}>
-              prêt
+              {s.hero.titleHighlight}
             </span>
           </motion.h1>
           <motion.p
@@ -135,7 +154,7 @@ export default function Simulator() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 text-lg max-w-xl mx-auto"
           >
-            Réponse de principe immédiate · Dossier confidentiel · Faible frais de dossier
+            {s.hero.subtitle}
           </motion.p>
         </div>
       </div>
@@ -160,14 +179,14 @@ export default function Simulator() {
                 >
                   <Calculator className="w-4.5 h-4.5 text-white" />
                 </div>
-                <h2 className="font-extrabold text-gray-900 text-lg">Simulateur</h2>
+                <h2 className="font-extrabold text-gray-900 text-lg">{s.card.title}</h2>
               </div>
 
               <div className="space-y-7">
                 {/* Montant */}
                 <div>
                   <div className="flex justify-between items-baseline mb-3">
-                    <span className="text-sm font-semibold text-gray-500">Montant</span>
+                    <span className="text-sm font-semibold text-gray-500">{s.card.amountLabel}</span>
                     <span className="text-xl font-extrabold text-gray-900">
                       {amount?.toLocaleString("fr-FR")}
                       <span className="text-green-600"> €</span>
@@ -197,10 +216,10 @@ export default function Simulator() {
                 {/* Durée */}
                 <div>
                   <div className="flex justify-between items-baseline mb-3">
-                    <span className="text-sm font-semibold text-gray-500">Durée</span>
+                    <span className="text-sm font-semibold text-gray-500">{s.card.durationLabel}</span>
                     <span className="text-xl font-extrabold text-gray-900">
                       {duration}
-                      <span className="text-green-600"> mois</span>
+                      <span className="text-green-600"> {t.common.monthly}</span>
                     </span>
                   </div>
                   <div className="relative h-2 rounded-full bg-gray-100">
@@ -220,7 +239,7 @@ export default function Simulator() {
                     />
                   </div>
                   <div className="flex justify-between mt-1.5 text-xs text-gray-400">
-                    <span>6 mois</span><span>120 mois</span>
+                    <span>6 {t.common.monthly}</span><span>120 {t.common.monthly}</span>
                   </div>
                 </div>
 
@@ -229,7 +248,7 @@ export default function Simulator() {
                   className="rounded-2xl p-6"
                   style={{ background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)" }}
                 >
-                  <div className="text-gray-400 text-xs uppercase tracking-wider mb-1">Mensualité estimée</div>
+                  <div className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t.simulator.monthlyPayment}</div>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={monthlyPayment.toFixed(2)}
@@ -246,8 +265,8 @@ export default function Simulator() {
 
                   <div className="grid grid-cols-2 gap-3 border-t border-white/10 pt-4 mb-4">
                     {[
-                      { label: "Total des mensualités", value: `${totalPaid.toFixed(2)} €`,       color: "text-gray-200" },
-                      { label: "Total des intérêts",   value: `${totalInterest.toFixed(2)} €`,   color: "text-green-400" },
+                      { label: t.simulator.totalPaid,     value: `${totalPaid.toFixed(2)} €`,     color: "text-gray-200" },
+                      { label: s.card.totalInterest,       value: `${totalInterest.toFixed(2)} €`, color: "text-green-400" },
                     ].map(({ label, value, color }) => (
                       <div key={label}>
                         <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">{label}</div>
@@ -260,7 +279,7 @@ export default function Simulator() {
                   {income > 0 && (
                     <div className="border-t border-white/10 pt-4">
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-xs text-gray-500">Taux d'endettement</span>
+                        <span className="text-xs text-gray-500">{s.card.debtRatio}</span>
                         <span className={`text-xs font-bold ${debtRatio > 35 ? "text-red-400" : "text-green-400"}`}>
                           {debtRatio.toFixed(1)}%
                           {debtRatio > 35 ? " ⚠️" : " ✓"}
@@ -275,14 +294,14 @@ export default function Simulator() {
                         />
                       </div>
                       <div className="text-[10px] text-gray-600 mt-1">
-                        Seuil recommandé : 33%
+                        {s.debtRatioThreshold}
                       </div>
                     </div>
                   )}
 
                   <div className="flex items-center gap-1.5 mt-4 text-xs text-gray-600">
                     <Percent className="w-3 h-3 text-green-500" />
-                    TAEG fixe indicatif : 3%
+                    {s.card.rateNote}
                   </div>
                 </div>
               </div>
@@ -294,14 +313,10 @@ export default function Simulator() {
               style={{ boxShadow: "0 2px 16px rgba(0,0,0,0.04)" }}
             >
               <div className="space-y-3">
-                {[
-                  { icon: ShieldCheck, text: "Vos données sont chiffrées (SSL 256-bit)",     color: "#16a34a" },
-                  { icon: Clock,       text: "Réponse de principe en moins de 2 minutes",     color: "#3b82f6" },
-                  { icon: CheckCircle2,text: "Faible frais de dossier · Sans engagement",       color: "#8b5cf6" },
-                ].map(({ icon: Icon, text, color }) => (
-                  <div key={text} className="flex items-center gap-3 text-sm text-gray-500">
-                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color }} />
-                    {text}
+                {[ShieldCheck, Clock, CheckCircle2].map((Icon, i) => (
+                  <div key={i} className="flex items-center gap-3 text-sm text-gray-500">
+                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color: ["#16a34a", "#3b82f6", "#8b5cf6"][i] }} />
+                    {s.reassurance[i]}
                   </div>
                 ))}
               </div>
@@ -337,28 +352,25 @@ export default function Simulator() {
                         </div>
                         <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
                           <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                          Demande pré-approuvée
+                          {s.result.approvedBadge}
                         </div>
                         <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-                          Félicitations ! 🎉
+                          {s.result.approvedTitle}
                         </h2>
                         <p className="text-gray-500 text-lg max-w-lg mx-auto leading-relaxed mb-8">
-                          Votre profil correspond à nos critères. Un conseiller va vous
-                          contacter sous{" "}
-                          <span className="font-semibold text-gray-900">24h</span>{" "}
-                          pour finaliser votre dossier.
+                          {s.result.approvedText}
                         </p>
                         <div
                           className="rounded-2xl p-6 mb-8 text-left max-w-sm mx-auto"
                           style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}
                         >
                           <div className="text-xs font-bold text-green-700 uppercase tracking-wider mb-3">
-                            Récapitulatif
+                            {s.result.recapTitle}
                           </div>
                           {[
-                            { label: "Montant",     value: `${amount?.toLocaleString("fr-FR")} €` },
-                            { label: "Durée",       value: `${duration} mois` },
-                            { label: "Mensualité",  value: `${monthlyPayment.toFixed(2)} €` },
+                            { label: s.card.amountLabel,   value: `${amount?.toLocaleString("fr-FR")} €` },
+                            { label: s.card.durationLabel, value: `${duration} ${t.common.monthly}` },
+                            { label: s.result.recapMonthly,value: `${monthlyPayment.toFixed(2)} €` },
                           ].map(({ label, value }) => (
                             <div key={label} className="flex justify-between text-sm py-1.5 border-b border-green-100 last:border-0">
                               <span className="text-green-700">{label}</span>
@@ -376,15 +388,13 @@ export default function Simulator() {
                           <Clock className="w-12 h-12 text-amber-500" />
                         </div>
                         <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
-                          Dossier en cours d'analyse
+                          {s.result.pendingBadge}
                         </div>
                         <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
-                          Dossier reçu
+                          {s.result.pendingTitle}
                         </h2>
                         <p className="text-gray-500 text-lg max-w-lg mx-auto leading-relaxed mb-8">
-                          Votre dossier nécessite une étude approfondie. Vous recevrez
-                          une réponse par email d'ici{" "}
-                          <span className="font-semibold text-gray-900">48h</span>.
+                          {s.result.pendingText}
                         </p>
                       </>
                     )}
@@ -392,7 +402,7 @@ export default function Simulator() {
                       onClick={() => { setDecision(null); reset(); setStep(1) }}
                       className="px-8 py-3.5 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-colors text-sm"
                     >
-                      Faire une autre simulation
+                      {s.result.retry}
                     </button>
                   </motion.div>
 
@@ -402,12 +412,12 @@ export default function Simulator() {
                     {/* ── Stepper ── */}
                     <div className="px-8 pt-8 pb-6 border-b border-gray-100">
                       <div className="flex items-center gap-0">
-                        {STEPS.map((s, i) => {
-                          const Icon = s.icon
-                          const done    = step > s.id
-                          const current = step === s.id
+                        {STEPS.map((st, i) => {
+                          const Icon = st.icon
+                          const done    = step > st.id
+                          const current = step === st.id
                           return (
-                            <div key={s.id} className="flex items-center flex-1 last:flex-none">
+                            <div key={st.id} className="flex items-center flex-1 last:flex-none">
                               <div className="flex flex-col items-center">
                                 <div
                                   className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300"
@@ -427,7 +437,7 @@ export default function Simulator() {
                                     current ? "text-green-600" : done ? "text-gray-400" : "text-gray-300"
                                   }`}
                                 >
-                                  {s.label}
+                                  {st.label}
                                 </span>
                               </div>
                               {i < STEPS.length - 1 && (
@@ -456,26 +466,23 @@ export default function Simulator() {
                               className="space-y-5"
                             >
                               <StepHeader
-                                num={1} title="Votre projet"
-                                desc="Dites-nous ce que vous souhaitez financer."
+                                num={1} title={s.form.step1.title}
+                                desc={s.form.step1.desc}
                               />
                               <div>
                                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                  Type de crédit <Req />
+                                  {s.form.step1.loanTypeLabel} <Req />
                                 </label>
                                 <select {...register("loanType")} className={selectClass}>
-                                  <option value="personnel">Prêt Personnel</option>
-                                  <option value="pro">Prêt Professionnel</option>
-                                  <option value="auto">Prêt Auto</option>
-                                  <option value="etudiant">Prêt Étudiant</option>
-                                  <option value="conso">Consommation</option>
-                                  <option value="rachat">Rachat de crédit</option>
+                                  {LOAN_TYPE_VALUES.map((val, i) => (
+                                    <option key={val} value={val}>{s.form.step1.loanTypeOptions[i]}</option>
+                                  ))}
                                 </select>
                               </div>
                               <div className="grid grid-cols-2 gap-4">
                                 <div>
                                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Montant (€) <Req />
+                                    {s.form.step1.amountLabel} <Req />
                                   </label>
                                   <input
                                     {...register("amount", { valueAsNumber: true })}
@@ -487,7 +494,7 @@ export default function Simulator() {
                                 </div>
                                 <div>
                                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                                    Durée (mois) <Req />
+                                    {s.form.step1.durationLabel} <Req />
                                   </label>
                                   <input
                                     {...register("duration", { valueAsNumber: true })}
@@ -510,29 +517,29 @@ export default function Simulator() {
                               className="space-y-5"
                             >
                               <StepHeader
-                                num={2} title="Informations personnelles"
-                                desc="Vos informations sont 100% confidentielles et sécurisées."
+                                num={2} title={s.form.step2.title}
+                                desc={s.form.step2.desc}
                               />
                               <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                  <label className="block text-sm font-semibold text-gray-700 mb-2">Prénom <Req /></label>
-                                  <input {...register("firstName")} placeholder="Jean" className={inputClass} />
+                                  <label className="block text-sm font-semibold text-gray-700 mb-2">{t.contact.form.firstName} <Req /></label>
+                                  <input {...register("firstName")} placeholder={t.contact.form.firstNamePlaceholder} className={inputClass} />
                                   {errors.firstName && <Err>{errors.firstName.message}</Err>}
                                 </div>
                                 <div>
-                                  <label className="block text-sm font-semibold text-gray-700 mb-2">Nom <Req /></label>
-                                  <input {...register("lastName")} placeholder="Dupont" className={inputClass} />
+                                  <label className="block text-sm font-semibold text-gray-700 mb-2">{t.contact.form.lastName} <Req /></label>
+                                  <input {...register("lastName")} placeholder={t.contact.form.lastNamePlaceholder} className={inputClass} />
                                   {errors.lastName && <Err>{errors.lastName.message}</Err>}
                                 </div>
                               </div>
                               <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Email <Req /></label>
-                                <input {...register("email")} type="email" placeholder="jean.dupont@email.com" className={inputClass} />
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">{t.contact.email} <Req /></label>
+                                <input {...register("email")} type="email" placeholder={t.contact.form.emailPlaceholder} className={inputClass} />
                                 {errors.email && <Err>{errors.email.message}</Err>}
                               </div>
                               <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Téléphone <Req /></label>
-                                <input {...register("phone")} placeholder="06 12 34 56 78" className={inputClass} />
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">{t.contact.phone} <Req /></label>
+                                <input {...register("phone")} placeholder={t.contact.form.phonePlaceholder} className={inputClass} />
                                 {errors.phone && <Err>{errors.phone.message}</Err>}
                               </div>
                             </motion.div>
@@ -547,25 +554,22 @@ export default function Simulator() {
                               className="space-y-5"
                             >
                               <StepHeader
-                                num={3} title="Situation professionnelle"
-                                desc="Ces informations nous permettent d'évaluer votre dossier."
+                                num={3} title={s.form.step3.title}
+                                desc={s.form.step3.desc}
                               />
                               <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Situation <Req /></label>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">{s.form.step3.statusLabel} <Req /></label>
                                 <select {...register("employmentStatus")} className={selectClass}>
-                                  <option value="">Sélectionner</option>
-                                  <option value="employee">Salarié(e)</option>
-                                  <option value="self-employed">Indépendant(e) / Freelance</option>
-                                  <option value="civil-servant">Fonctionnaire</option>
-                                  <option value="student">Étudiant(e)</option>
-                                  <option value="retired">Retraité(e)</option>
-                                  <option value="unemployed">Sans emploi</option>
+                                  <option value="">{s.form.step3.statusPlaceholder}</option>
+                                  {STATUS_VALUES.map((val, i) => (
+                                    <option key={val} value={val}>{s.form.step3.statusOptions[i]}</option>
+                                  ))}
                                 </select>
                                 {errors.employmentStatus && <Err>{errors.employmentStatus.message}</Err>}
                               </div>
                               <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                  <label className="block text-sm font-semibold text-gray-700 mb-2">Revenu mensuel net (€) <Req /></label>
+                                  <label className="block text-sm font-semibold text-gray-700 mb-2">{s.form.step3.incomeLabel} <Req /></label>
                                   <input
                                     {...register("income", { valueAsNumber: true })}
                                     type="number" placeholder="3000" className={inputClass}
@@ -573,7 +577,7 @@ export default function Simulator() {
                                   {errors.income && <Err>{errors.income.message}</Err>}
                                 </div>
                                 <div>
-                                  <label className="block text-sm font-semibold text-gray-700 mb-2">Charges mensuelles (€) <Req /></label>
+                                  <label className="block text-sm font-semibold text-gray-700 mb-2">{s.form.step3.expensesLabel} <Req /></label>
                                   <input
                                     {...register("monthlyExpenses", { valueAsNumber: true })}
                                     type="number" placeholder="1200" className={inputClass}
@@ -591,16 +595,14 @@ export default function Simulator() {
                                 >
                                   <div className="flex justify-between items-center mb-2">
                                     <span className={`font-semibold ${debtRatio > 35 ? "text-red-700" : "text-green-700"}`}>
-                                      Taux d'endettement estimé
+                                      {s.debtRatioFull}
                                     </span>
                                     <span className={`font-extrabold text-lg ${debtRatio > 35 ? "text-red-600" : "text-green-600"}`}>
                                       {debtRatio.toFixed(1)}%
                                     </span>
                                   </div>
                                   <p className={`text-xs ${debtRatio > 35 ? "text-red-500" : "text-green-600"}`}>
-                                    {debtRatio > 35
-                                      ? "⚠️ Votre taux dépasse les 33% recommandés. Votre dossier sera étudié au cas par cas."
-                                      : "✓ Votre taux d'endettement est dans la norme recommandée (< 33%)."}
+                                    {debtRatio > 35 ? s.debtRatioWarning : s.debtRatioOk}
                                   </p>
                                 </div>
                               )}
@@ -616,35 +618,35 @@ export default function Simulator() {
                               className="space-y-5"
                             >
                               <StepHeader
-                                num={4} title="Votre adresse"
-                                desc="Dernière étape avant l'analyse de votre dossier."
+                                num={4} title={s.form.step4.title}
+                                desc={s.form.step4.desc}
                               />
                               <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Adresse <Req /></label>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">{s.form.step4.addressLabel} <Req /></label>
                                 <input {...register("address")} placeholder="12 rue de Paris" className={inputClass} />
                                 {errors.address && <Err>{errors.address.message}</Err>}
                               </div>
                               <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                  <label className="block text-sm font-semibold text-gray-700 mb-2">Ville <Req /></label>
+                                  <label className="block text-sm font-semibold text-gray-700 mb-2">{s.form.step4.cityLabel} <Req /></label>
                                   <input {...register("city")} placeholder="Paris" className={inputClass} />
                                   {errors.city && <Err>{errors.city.message}</Err>}
                                 </div>
                                 <div>
-                                  <label className="block text-sm font-semibold text-gray-700 mb-2">Code postal <Req /></label>
+                                  <label className="block text-sm font-semibold text-gray-700 mb-2">{s.form.step4.zipLabel} <Req /></label>
                                   <input {...register("zipCode")} placeholder="75001" className={inputClass} />
                                   {errors.zipCode && <Err>{errors.zipCode.message}</Err>}
                                 </div>
                               </div>
                               <div>
-                                <label className="block text-sm font-semibold text-gray-700 mb-2">Pays <Req /></label>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2">{s.form.step4.countryLabel} <Req /></label>
                                 <input {...register("country")} placeholder="France" className={inputClass} />
                                 {errors.country && <Err>{errors.country.message}</Err>}
                               </div>
                               <p className="text-xs text-gray-400 leading-relaxed pt-1">
-                                En soumettant ce formulaire, vous acceptez notre{" "}
-                                <a href="#" className="text-green-600 hover:underline">politique de confidentialité</a>
-                                {" "}et le traitement de vos données conformément au RGPD.
+                                {s.form.step4.rgpd1}{" "}
+                                <a href="#" className="text-green-600 hover:underline">{t.contact.form.rgpdLink}</a>
+                                {" "}{s.form.step4.rgpd2}
                               </p>
                             </motion.div>
                           )}
@@ -660,7 +662,7 @@ export default function Simulator() {
                             onClick={() => setStep(s => s - 1)}
                             className="flex items-center gap-2 px-5 py-3.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-colors"
                           >
-                            <ArrowLeft className="w-4 h-4" /> Retour
+                            <ArrowLeft className="w-4 h-4" /> {t.common.back}
                           </button>
                         )}
 
@@ -674,7 +676,7 @@ export default function Simulator() {
                               boxShadow: "0 6px 20px rgba(22,163,74,0.38)",
                             }}
                           >
-                            Continuer
+                            {s.form.continue}
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                           </button>
                         ) : (
@@ -688,9 +690,9 @@ export default function Simulator() {
                             }}
                           >
                             {isSubmitting ? (
-                              <><Loader2 className="w-4 h-4 animate-spin" /> Analyse en cours…</>
+                              <><Loader2 className="w-4 h-4 animate-spin" /> {s.form.analyzing}</>
                             ) : (
-                              <><CheckCircle2 className="w-4 h-4" /> Soumettre ma demande</>
+                              <><CheckCircle2 className="w-4 h-4" /> {s.form.submit}</>
                             )}
                           </button>
                         )}

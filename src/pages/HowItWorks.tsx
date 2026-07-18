@@ -5,128 +5,32 @@ import {
   PenLine, Banknote, ArrowRight, ShieldCheck, Clock,
   CheckCircle2, HelpCircle, Phone, Star, Zap, Lock, HeartHandshake,
 } from "lucide-react"
+import { useI18n } from "@/lib/i18n-context"
 
 // ─────────────────────────────────────────────
-// DONNÉES
+// DONNÉES NON TRADUISIBLES (icônes, couleurs, images, numéros)
 // ─────────────────────────────────────────────
 
-const STEPS = [
-  {
-    number: "01",
-    icon: Calculator,
-    color: "#16a34a",
-    bg: "#f0fdf4",
-    title: "Simulez votre prêt",
-    subtitle: "Moins de 2 minutes",
-    desc: "Indiquez le montant souhaité, la durée de remboursement et votre projet. Notre simulateur calcule instantanément votre mensualité estimée et le coût total de votre crédit.",
-    details: [
-      "Aucun engagement à cette étape",
-      "Résultat instantané, 100% gratuit",
-      "Modifiez les paramètres librement",
-    ],
-    image: "1554224155-6726b3ff858f",
-  },
-  {
-    number: "02",
-    icon: ClipboardList,
-    color: "#3b82f6",
-    bg: "#eff6ff",
-    title: "Complétez votre demande",
-    subtitle: "5 à 10 minutes",
-    desc: "Renseignez votre situation personnelle et professionnelle dans notre formulaire sécurisé. Nos conseillers ont besoin de ces informations pour étudier votre dossier au mieux.",
-    details: [
-      "Formulaire 100% en ligne et sécurisé",
-      "Données chiffrées SSL 256-bit",
-      "Sauvegarde automatique à chaque étape",
-    ],
-    image: "1551434678-e196c2de7c53",
-  },
-  {
-    number: "03",
-    icon: UserCheck,
-    color: "#8b5cf6",
-    bg: "#f5f3ff",
-    title: "Étude de votre dossier",
-    subtitle: "Réponse sous 24h",
-    desc: "Un conseiller Fab Finance dédié analyse votre dossier et vous contacte par téléphone ou WhatsApp pour affiner votre offre et répondre à toutes vos questions.",
-    details: [
-      "Conseiller personnel attitré",
-      "Contact par téléphone ou WhatsApp",
-      "Analyse humaine, pas automatisée",
-    ],
-    image: "1573496359142-b8d87734a5a2",
-  },
-  {
-    number: "04",
-    icon: FileCheck2,
-    color: "#f59e0b",
-    bg: "#fffbeb",
-    title: "Recevez votre offre",
-    subtitle: "Sous 48h",
-    desc: "Vous recevez votre offre de prêt personnalisée par email avec toutes les conditions détaillées : TAEG, mensualités, durée, et coût total. Prenez le temps de lire.",
-    details: [
-      "Offre détaillée et transparente",
-      "TAEG et conditions claires",
-      "Délai de réflexion sans pression",
-    ],
-    image: "1450101499163-c8848c66ca85",
-  },
-  {
-    number: "05",
-    icon: PenLine,
-    color: "#0ea5e9",
-    bg: "#f0f9ff",
-    title: "Signez votre contrat",
-    subtitle: "Signature électronique",
-    desc: "Si l'offre vous convient, vous disposez d'un délai légal de rétractation de 14 jours. À l'issue de ce délai, confirmez votre acceptation par signature électronique sécurisée.",
-    details: [
-      "Délai légal de rétractation 14 jours",
-      "Signature électronique certifiée eIDAS",
-      "Zéro déplacement, 100% en ligne",
-    ],
-    image: "1450101499163-c8848c66ca85",
-  },
-  {
-    number: "06",
-    icon: Banknote,
-    color: "#16a34a",
-    bg: "#f0fdf4",
-    title: "Recevez vos fonds",
-    subtitle: "Virement sous 24–48h",
-    desc: "Une fois votre contrat signé et le délai de rétractation écoulé, les fonds sont versés directement sur votre compte bancaire. Votre projet peut démarrer !",
-    details: [
-      "Virement bancaire sécurisé",
-      "Fonds disponibles sous 24 à 48h",
-      "Notification par SMS et email",
-    ],
-    image: "1579621970795-87facc2f976d",
-  },
+const STEP_META = [
+  { number: "01", icon: Calculator,   color: "#16a34a", bg: "#f0fdf4" },
+  { number: "02", icon: ClipboardList,color: "#3b82f6", bg: "#eff6ff" },
+  { number: "03", icon: UserCheck,    color: "#8b5cf6", bg: "#f5f3ff" },
+  { number: "04", icon: FileCheck2,   color: "#f59e0b", bg: "#fffbeb" },
+  { number: "05", icon: PenLine,      color: "#0ea5e9", bg: "#f0f9ff" },
+  { number: "06", icon: Banknote,     color: "#16a34a", bg: "#f0fdf4" },
 ]
 
-const GUARANTEES = [
-  { icon: Zap,           color: "#16a34a", title: "Rapidité",       desc: "Réponse de principe en 2 minutes, fonds sous 48h après signature."     },
-  { icon: Lock,          color: "#3b82f6", title: "Sécurité",       desc: "Vos données sont chiffrées SSL 256-bit et jamais revendues à des tiers." },
-  { icon: HeartHandshake,color: "#8b5cf6", title: "Accompagnement", desc: "Un conseiller dédié vous suit de la simulation au versement des fonds."  },
-  { icon: ShieldCheck,   color: "#f59e0b", title: "Transparence",   desc: "Zéro frais cachés, faible frais de dossier. Le TAEG est affiché dès le départ." },
+const GUARANTEE_META = [
+  { icon: Zap,            color: "#16a34a" },
+  { icon: Lock,           color: "#3b82f6" },
+  { icon: HeartHandshake, color: "#8b5cf6" },
+  { icon: ShieldCheck,    color: "#f59e0b" },
 ]
 
-const FAQS = [
-  {
-    q: "Combien de temps dure le processus complet ?",
-    a: "De la simulation au versement des fonds, le processus prend généralement entre 5 et 10 jours ouvrés, en tenant compte du délai légal de rétractation de 14 jours. En cas d'urgence, contactez-nous directement par WhatsApp.",
-  },
-  {
-    q: "Quels documents dois-je préparer ?",
-    a: "Pièce d'identité, 3 derniers bulletins de salaire (ou justificatifs de revenus), justificatif de domicile récent et RIB. Tout se transmet en ligne, en quelques clics.",
-  },
-  {
-    q: "Ma demande engage-t-elle à quoi que ce soit ?",
-    a: "Non. La simulation et la demande de dossier sont totalement gratuites et sans engagement. Vous n'êtes engagé qu'après avoir signé votre contrat, et vous disposez encore d'un délai de rétractation de 14 jours.",
-  },
-  {
-    q: "Puis-je suivre l'avancement de mon dossier ?",
-    a: "Oui. Votre conseiller Fab Finance vous tient informé à chaque étape par téléphone, email ou WhatsApp. Vous pouvez le contacter directement à tout moment.",
-  },
+const REVIEW_META = [
+  { name: "Marie L.",  avatar: "1438761681033-6461ffad8d80" },
+  { name: "Thomas R.", avatar: "1500648767791-00dcc994a43e" },
+  { name: "Sophia K.", avatar: "1494790108377-be9c29b29330" },
 ]
 
 // ─────────────────────────────────────────────
@@ -134,6 +38,13 @@ const FAQS = [
 // ─────────────────────────────────────────────
 
 export default function HowItWorks() {
+  const { t } = useI18n();
+  const s = t.howItWorks
+
+  const STEPS = s.stepsList.map((data, i) => ({ ...STEP_META[i], ...data }))
+  const GUARANTEES = s.guarantees.map((data, i) => ({ ...GUARANTEE_META[i], ...data }))
+  const REVIEWS = s.reviews.items.map((text, i) => ({ ...REVIEW_META[i], text }))
+
   return (
     <div className="min-h-screen bg-white">
 
@@ -163,33 +74,27 @@ export default function HowItWorks() {
             <div className="inline-flex items-center gap-2 mb-6">
               <span className="flex h-2 w-2 rounded-full bg-green-400 animate-pulse" />
               <span className="text-green-400 text-xs font-bold uppercase tracking-widest">
-                Processus 100% transparent
+                {s.badge}
               </span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-              Comment obtenir<br />
+              {s.hero.titleLine1}<br />
               <span
                 className="text-transparent bg-clip-text"
                 style={{ backgroundImage: "linear-gradient(135deg, #4ade80 0%, #16a34a 100%)" }}
               >
-                votre prêt ?
+                {s.hero.titleLine2}
               </span>
             </h1>
 
             <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-              De la simulation au versement des fonds, découvrez chaque étape de notre processus.
-              Simple, rapide et entièrement accompagné par nos conseillers.
+              {s.hero.subtitle}
             </p>
 
             {/* Stats hero */}
             <div className="flex flex-wrap justify-center gap-8">
-              {[
-                { value: "2 min",     label: "pour simuler"    },
-                { value: "24h",       label: "réponse dossier" },
-                { value: "14 jours",  label: "rétractation"    },
-                { value: "Faible",       label: "frais de dossier"},
-              ].map(({ value, label }) => (
+              {s.hero.stats.map(({ value, label }) => (
                 <div key={label} className="text-center">
                   <div
                     className="text-2xl font-extrabold text-transparent bg-clip-text"
@@ -223,11 +128,11 @@ export default function HowItWorks() {
         >
           <span className="inline-flex items-center gap-2 text-green-600 text-xs font-bold uppercase tracking-widest mb-3">
             <span className="w-4 h-0.5 bg-green-500 rounded-full" />
-            6 étapes simples
+            {s.steps}
             <span className="w-4 h-0.5 bg-green-500 rounded-full" />
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
-            Le parcours Fab Finance
+            {s.journey}
           </h2>
         </motion.div>
 
@@ -322,7 +227,7 @@ export default function HowItWorks() {
                         style={{ background: "rgba(255,255,255,0.85)", backdropFilter: "blur(8px)" }}
                       >
                         <p className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">
-                          Étape {step.number}
+                          {s.stepWord} {step.number}
                         </p>
                         <p className="text-sm font-extrabold text-gray-900">{step.title}</p>
                         <div className="flex items-center gap-1 mt-1">
@@ -364,11 +269,11 @@ export default function HowItWorks() {
           >
             <span className="inline-flex items-center gap-2 text-green-600 text-xs font-bold uppercase tracking-widest mb-3">
               <span className="w-4 h-0.5 bg-green-500 rounded-full" />
-              Nos engagements
+              {s.guarantee}
               <span className="w-4 h-0.5 bg-green-500 rounded-full" />
             </span>
             <h2 className="text-3xl font-extrabold text-gray-900">
-              Pourquoi choisir Fab Finance ?
+              {s.whyUs}
             </h2>
           </motion.div>
 
@@ -411,16 +316,12 @@ export default function HowItWorks() {
                 <Star key={i} className="w-7 h-7 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <p className="text-4xl font-extrabold text-gray-900 mb-1">4,8 / 5</p>
-            <p className="text-gray-400 text-sm">Basé sur +12 000 avis clients vérifiés</p>
+            <p className="text-4xl font-extrabold text-gray-900 mb-1">{s.reviews.ratingValue}</p>
+            <p className="text-gray-400 text-sm">{s.reviews.ratingSub}</p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-4">
-            {[
-              { name: "Marie L.",  text: "Tout s'est passé exactement comme décrit. Mon conseiller était joignable à chaque étape.", avatar: "1438761681033-6461ffad8d80" },
-              { name: "Thomas R.", text: "Du formulaire au virement, 4 jours seulement. Incroyable pour un prêt de cette taille.",   avatar: "1500648767791-00dcc994a43e" },
-              { name: "Sophia K.", text: "Enfin un organisme de crédit qui explique clairement chaque étape sans jargon.",             avatar: "1494790108377-be9c29b29330" },
-            ].map((r, i) => (
+            {REVIEWS.map((r, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 16 }}
@@ -430,8 +331,8 @@ export default function HowItWorks() {
                 className="bg-gray-50 rounded-2xl p-5 text-left border border-gray-100"
               >
                 <div className="flex gap-0.5 mb-3">
-                  {[...Array(5)].map((_, s) => (
-                    <Star key={s} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
+                  {[...Array(5)].map((_, st) => (
+                    <Star key={st} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed italic mb-4">"{r.text}"</p>
@@ -464,11 +365,11 @@ export default function HowItWorks() {
             >
               <HelpCircle className="w-6 h-6 text-white" />
             </div>
-            <h2 className="text-3xl font-extrabold text-gray-900">Questions fréquentes</h2>
+            <h2 className="text-3xl font-extrabold text-gray-900">{s.faqTitle}</h2>
           </motion.div>
 
           <div className="space-y-3">
-            {FAQS.map((faq, i) => (
+            {s.faqs.map((faq, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 12 }}
@@ -514,17 +415,16 @@ export default function HowItWorks() {
           <span className="inline-flex items-center gap-2 mb-5">
             <span className="flex h-2 w-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-green-400 text-xs font-bold uppercase tracking-widest">
-              Prêt à commencer ?
+              {s.finalCta.badge}
             </span>
           </span>
 
           <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-            Simulez votre prêt maintenant
+            {s.finalCta.title}
           </h2>
 
           <p className="text-gray-400 mb-8 leading-relaxed">
-            Gratuit, sans engagement, réponse en 2 minutes.
-            Votre conseiller vous contacte sous 24h.
+            {s.finalCta.subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -536,7 +436,7 @@ export default function HowItWorks() {
                 boxShadow: "0 8px 32px rgba(22,163,74,0.45)",
               }}
             >
-              Démarrer ma simulation
+              {s.cta}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
 
@@ -547,15 +447,15 @@ export default function HowItWorks() {
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl font-bold text-white text-sm border border-white/20 bg-white/8 hover:bg-white/15 transition-all duration-200"
             >
               <Phone className="w-4 h-4" />
-              Parler à un conseiller
+              {s.finalCta.talkToAdvisor}
             </a>
           </div>
 
           <div className="flex flex-wrap justify-center gap-5 mt-8">
             {[
-              { icon: ShieldCheck, label: "100% sécurisé"      },
-              { icon: Clock,       label: "Réponse en 2 min"   },
-              { icon: CheckCircle2,label: "Sans engagement"     },
+              { icon: ShieldCheck, label: t.common.secure           },
+              { icon: Clock,       label: s.finalCta.responseTime   },
+              { icon: CheckCircle2,label: t.common.noCommit         },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-1.5 text-xs text-gray-500">
                 <Icon className="w-3.5 h-3.5 text-green-500" />
