@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { X, MessageCircle, Phone, Mail, ChevronRight } from "lucide-react"
 import { useI18n } from "@/lib/i18n-context"
 
-const WHATSAPP_NUMBER = "33605662921" // ← remplace par ton numéro sans le +
+const WHATSAPP_NUMBER = "33753959516" // ← remplace par ton numéro sans le +
 
 function buildWhatsAppUrl(msg: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`
